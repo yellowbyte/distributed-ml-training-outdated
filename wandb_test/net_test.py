@@ -12,6 +12,7 @@ import torch.optim as optim
 from torch.distributed.optim import DistributedOptimizer
 from torch.distributed.rpc import RRef
 import torch.distributed as dist
+import wandb
 
 
 class ToyModelBase(nn.Module):
@@ -197,15 +198,20 @@ def run_worker(rank, world_size, num_split):
 
 if __name__=="__main__":
 
+    wandb_proj_name = "wandb_test"
+    # initialize the wandb machine learning experimental tracking platform (https://wandb.ai/automl/fednlp).
+    wandb.init(project="fl-dist", entity="zjc664656505")
+
+
     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-    os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
-    os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
+    # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
+    # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['MASTER_ADDR'] = '192.168.0.195'
     # os.environ['MASTER_PORT'] = '29412'
-    #os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
-    #os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
-    os.environ['MASTER_ADDR'] = '192.168.0.195'
-    # os.environ['MASTER_ADDR'] = '128.195.41.40'
+    os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
+    os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
+    # os.environ['MASTER_ADDR'] = '192.168.0.195'
+    os.environ['MASTER_ADDR'] = '128.195.41.40'
     os.environ['MASTER_PORT'] = '29412'
     print(os.environ.get('GLOO_SOCKET_IFNAME'))
     world_size = 3

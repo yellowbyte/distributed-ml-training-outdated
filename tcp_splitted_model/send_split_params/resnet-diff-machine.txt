@@ -1,0 +1,1528 @@
+Files already downloaded and verified
+wandb: Currently logged in as: zjc664656505 (use `wandb login --relogin` to force relogin)
+wandb: wandb version 0.12.17 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.10.12
+wandb: Syncing run faithful-sunset-42
+wandb: ⭐️ View project at https://wandb.ai/zjc664656505/fl-dist
+wandb: 🚀 View run at https://wandb.ai/zjc664656505/fl-dist/runs/28hnzpkn
+wandb: Run data is saved locally in /home/junchen/Resource-Efficient-FL/FL-DIST-clean/tcp_splitted_model/send_split_params/wandb/run-20220606_202426-28hnzpkn
+wandb: Run `wandb offline` to turn off syncing.
+
+wlp72s0
+b'13        \x80\x03X\x03\x00\x00\x000:6q\x00.'
+b'14        \x80\x03X\x04\x00\x00\x006:10q\x00.'
+check run master resnet
+rref param len 161
+Current Epoch :0
+Epoch [1/1], Step [10/5000]
+Epoch [1/1], Step [20/5000]
+Epoch [1/1], Step [30/5000]
+Epoch [1/1], Step [40/5000]
+Epoch [1/1], Step [50/5000]
+Epoch [1/1], Step [60/5000]
+Epoch [1/1], Step [70/5000]
+Epoch [1/1], Step [80/5000]
+Epoch [1/1], Step [90/5000]
+Epoch [1/1], Step [100/5000]
+Epoch [1/1], Step [110/5000]
+Epoch [1/1], Step [120/5000]
+Epoch [1/1], Step [130/5000]
+Epoch [1/1], Step [140/5000]
+Epoch [1/1], Step [150/5000]
+Epoch [1/1], Step [160/5000]
+Epoch [1/1], Step [170/5000]
+Epoch [1/1], Step [180/5000]
+Epoch [1/1], Step [190/5000]
+Epoch [1/1], Step [200/5000]
+Epoch [1/1], Step [210/5000]
+Epoch [1/1], Step [220/5000]
+Epoch [1/1], Step [230/5000]
+Epoch [1/1], Step [240/5000]
+Epoch [1/1], Step [250/5000]
+Epoch [1/1], Step [260/5000]
+Epoch [1/1], Step [270/5000]
+Epoch [1/1], Step [280/5000]
+Epoch [1/1], Step [290/5000]
+Epoch [1/1], Step [300/5000]
+Epoch [1/1], Step [310/5000]
+Epoch [1/1], Step [320/5000]
+Epoch [1/1], Step [330/5000]
+Epoch [1/1], Step [340/5000]
+Epoch [1/1], Step [350/5000]
+Epoch [1/1], Step [360/5000]
+Epoch [1/1], Step [370/5000]
+Epoch [1/1], Step [380/5000]
+Epoch [1/1], Step [390/5000]
+Epoch [1/1], Step [400/5000]
+Epoch [1/1], Step [410/5000]
+Epoch [1/1], Step [420/5000]
+Epoch [1/1], Step [430/5000]
+Epoch [1/1], Step [440/5000]
+Epoch [1/1], Step [450/5000]
+Epoch [1/1], Step [460/5000]
+Epoch [1/1], Step [470/5000]
+Epoch [1/1], Step [480/5000]
+Epoch [1/1], Step [490/5000]
+Epoch [1/1], Step [500/5000]
+Epoch [1/1], Step [510/5000]
+Epoch [1/1], Step [520/5000]
+Epoch [1/1], Step [530/5000]
+Epoch [1/1], Step [540/5000]
+Epoch [1/1], Step [550/5000]
+Epoch [1/1], Step [560/5000]
+Epoch [1/1], Step [570/5000]
+Epoch [1/1], Step [580/5000]
+Epoch [1/1], Step [590/5000]
+Epoch [1/1], Step [600/5000]
+Epoch [1/1], Step [610/5000]
+Epoch [1/1], Step [620/5000]
+Epoch [1/1], Step [630/5000]
+Epoch [1/1], Step [640/5000]
+Epoch [1/1], Step [650/5000]
+Epoch [1/1], Step [660/5000]
+Epoch [1/1], Step [670/5000]
+Epoch [1/1], Step [680/5000]
+Epoch [1/1], Step [690/5000]
+Epoch [1/1], Step [700/5000]
+Epoch [1/1], Step [710/5000]
+Epoch [1/1], Step [720/5000]
+Epoch [1/1], Step [730/5000]
+Epoch [1/1], Step [740/5000]
+Epoch [1/1], Step [750/5000]
+Epoch [1/1], Step [760/5000]
+Epoch [1/1], Step [770/5000]
+Epoch [1/1], Step [780/5000]
+Epoch [1/1], Step [790/5000]
+Epoch [1/1], Step [800/5000]
+Epoch [1/1], Step [810/5000]
+Epoch [1/1], Step [820/5000]
+Epoch [1/1], Step [830/5000]
+Epoch [1/1], Step [840/5000]
+Epoch [1/1], Step [850/5000]
+Epoch [1/1], Step [860/5000]
+Epoch [1/1], Step [870/5000]
+Epoch [1/1], Step [880/5000]
+Epoch [1/1], Step [890/5000]
+Epoch [1/1], Step [900/5000]
+Epoch [1/1], Step [910/5000]
+Epoch [1/1], Step [920/5000]
+Epoch [1/1], Step [930/5000]
+Epoch [1/1], Step [940/5000]
+Epoch [1/1], Step [950/5000]
+Epoch [1/1], Step [960/5000]
+Epoch [1/1], Step [970/5000]
+Epoch [1/1], Step [980/5000]
+Epoch [1/1], Step [990/5000]
+Epoch [1/1], Step [1000/5000]
+Epoch [1/1], Step [1010/5000]
+Epoch [1/1], Step [1020/5000]
+Epoch [1/1], Step [1030/5000]
+Epoch [1/1], Step [1040/5000]
+Epoch [1/1], Step [1050/5000]
+Epoch [1/1], Step [1060/5000]
+Epoch [1/1], Step [1070/5000]
+Epoch [1/1], Step [1080/5000]
+Epoch [1/1], Step [1090/5000]
+Epoch [1/1], Step [1100/5000]
+Epoch [1/1], Step [1110/5000]
+Epoch [1/1], Step [1120/5000]
+Epoch [1/1], Step [1130/5000]
+Epoch [1/1], Step [1140/5000]
+Epoch [1/1], Step [1150/5000]
+Epoch [1/1], Step [1160/5000]
+Epoch [1/1], Step [1170/5000]
+Epoch [1/1], Step [1180/5000]
+Epoch [1/1], Step [1190/5000]
+Epoch [1/1], Step [1200/5000]
+Epoch [1/1], Step [1210/5000]
+Epoch [1/1], Step [1220/5000]
+Epoch [1/1], Step [1230/5000]
+Epoch [1/1], Step [1240/5000]
+Epoch [1/1], Step [1250/5000]
+Epoch [1/1], Step [1260/5000]
+Epoch [1/1], Step [1270/5000]
+Epoch [1/1], Step [1280/5000]
+Epoch [1/1], Step [1290/5000]
+Epoch [1/1], Step [1300/5000]
+Epoch [1/1], Step [1310/5000]
+Epoch [1/1], Step [1320/5000]
+Epoch [1/1], Step [1330/5000]
+Epoch [1/1], Step [1340/5000]
+Epoch [1/1], Step [1350/5000]
+Epoch [1/1], Step [1360/5000]
+Epoch [1/1], Step [1370/5000]
+Epoch [1/1], Step [1380/5000]
+Epoch [1/1], Step [1390/5000]
+Epoch [1/1], Step [1400/5000]
+Epoch [1/1], Step [1410/5000]
+Epoch [1/1], Step [1420/5000]
+Epoch [1/1], Step [1430/5000]
+Epoch [1/1], Step [1440/5000]
+Epoch [1/1], Step [1450/5000]
+Epoch [1/1], Step [1460/5000]
+Epoch [1/1], Step [1470/5000]
+Epoch [1/1], Step [1480/5000]
+Epoch [1/1], Step [1490/5000]
+Epoch [1/1], Step [1500/5000]
+Epoch [1/1], Step [1510/5000]
+Epoch [1/1], Step [1520/5000]
+Epoch [1/1], Step [1530/5000]
+Epoch [1/1], Step [1540/5000]
+Epoch [1/1], Step [1550/5000]
+Epoch [1/1], Step [1560/5000]
+Epoch [1/1], Step [1570/5000]
+Epoch [1/1], Step [1580/5000]
+Epoch [1/1], Step [1590/5000]
+Epoch [1/1], Step [1600/5000]
+Epoch [1/1], Step [1610/5000]
+Epoch [1/1], Step [1620/5000]
+Epoch [1/1], Step [1630/5000]
+Epoch [1/1], Step [1640/5000]
+Epoch [1/1], Step [1650/5000]
+Epoch [1/1], Step [1660/5000]
+Epoch [1/1], Step [1670/5000]
+Epoch [1/1], Step [1680/5000]
+Epoch [1/1], Step [1690/5000]
+Epoch [1/1], Step [1700/5000]
+Epoch [1/1], Step [1710/5000]
+Epoch [1/1], Step [1720/5000]
+Epoch [1/1], Step [1730/5000]
+Epoch [1/1], Step [1740/5000]
+Epoch [1/1], Step [1750/5000]
+Epoch [1/1], Step [1760/5000]
+Epoch [1/1], Step [1770/5000]
+Epoch [1/1], Step [1780/5000]
+Epoch [1/1], Step [1790/5000]
+Epoch [1/1], Step [1800/5000]
+Epoch [1/1], Step [1810/5000]
+Epoch [1/1], Step [1820/5000]
+Epoch [1/1], Step [1830/5000]
+Epoch [1/1], Step [1840/5000]
+Epoch [1/1], Step [1850/5000]
+Epoch [1/1], Step [1860/5000]
+Epoch [1/1], Step [1870/5000]
+Epoch [1/1], Step [1880/5000]
+Epoch [1/1], Step [1890/5000]
+Epoch [1/1], Step [1900/5000]
+Epoch [1/1], Step [1910/5000]
+Epoch [1/1], Step [1920/5000]
+Epoch [1/1], Step [1930/5000]
+Epoch [1/1], Step [1940/5000]
+Epoch [1/1], Step [1950/5000]
+Epoch [1/1], Step [1960/5000]
+Epoch [1/1], Step [1970/5000]
+Epoch [1/1], Step [1980/5000]
+Epoch [1/1], Step [1990/5000]
+Epoch [1/1], Step [2000/5000]
+Epoch [1/1], Step [2010/5000]
+Epoch [1/1], Step [2020/5000]
+Epoch [1/1], Step [2030/5000]
+Epoch [1/1], Step [2040/5000]
+Epoch [1/1], Step [2050/5000]
+Epoch [1/1], Step [2060/5000]
+Epoch [1/1], Step [2070/5000]
+Epoch [1/1], Step [2080/5000]
+Epoch [1/1], Step [2090/5000]
+Epoch [1/1], Step [2100/5000]
+Epoch [1/1], Step [2110/5000]
+Epoch [1/1], Step [2120/5000]
+Epoch [1/1], Step [2130/5000]
+Epoch [1/1], Step [2140/5000]
+Epoch [1/1], Step [2150/5000]
+Epoch [1/1], Step [2160/5000]
+Epoch [1/1], Step [2170/5000]
+Epoch [1/1], Step [2180/5000]
+Epoch [1/1], Step [2190/5000]
+Epoch [1/1], Step [2200/5000]
+Epoch [1/1], Step [2210/5000]
+Epoch [1/1], Step [2220/5000]
+Epoch [1/1], Step [2230/5000]
+Epoch [1/1], Step [2240/5000]
+Epoch [1/1], Step [2250/5000]
+Epoch [1/1], Step [2260/5000]
+Epoch [1/1], Step [2270/5000]
+Epoch [1/1], Step [2280/5000]
+Epoch [1/1], Step [2290/5000]
+Epoch [1/1], Step [2300/5000]
+Epoch [1/1], Step [2310/5000]
+Epoch [1/1], Step [2320/5000]
+Epoch [1/1], Step [2330/5000]
+Epoch [1/1], Step [2340/5000]
+Epoch [1/1], Step [2350/5000]
+Epoch [1/1], Step [2360/5000]
+Epoch [1/1], Step [2370/5000]
+Epoch [1/1], Step [2380/5000]
+Epoch [1/1], Step [2390/5000]
+Epoch [1/1], Step [2400/5000]
+Epoch [1/1], Step [2410/5000]
+Epoch [1/1], Step [2420/5000]
+Epoch [1/1], Step [2430/5000]
+Epoch [1/1], Step [2440/5000]
+Epoch [1/1], Step [2450/5000]
+Epoch [1/1], Step [2460/5000]
+Epoch [1/1], Step [2470/5000]
+Epoch [1/1], Step [2480/5000]
+Epoch [1/1], Step [2490/5000]
+Epoch [1/1], Step [2500/5000]
+Epoch [1/1], Step [2510/5000]
+Epoch [1/1], Step [2520/5000]
+Epoch [1/1], Step [2530/5000]
+Epoch [1/1], Step [2540/5000]
+Epoch [1/1], Step [2550/5000]
+Epoch [1/1], Step [2560/5000]
+Epoch [1/1], Step [2570/5000]
+Epoch [1/1], Step [2580/5000]
+Epoch [1/1], Step [2590/5000]
+Epoch [1/1], Step [2600/5000]
+Epoch [1/1], Step [2610/5000]
+Epoch [1/1], Step [2620/5000]
+Epoch [1/1], Step [2630/5000]
+Epoch [1/1], Step [2640/5000]
+Epoch [1/1], Step [2650/5000]
+Epoch [1/1], Step [2660/5000]
+Epoch [1/1], Step [2670/5000]
+Epoch [1/1], Step [2680/5000]
+Epoch [1/1], Step [2690/5000]
+Epoch [1/1], Step [2700/5000]
+Epoch [1/1], Step [2710/5000]
+Epoch [1/1], Step [2720/5000]
+Epoch [1/1], Step [2730/5000]
+Epoch [1/1], Step [2740/5000]
+Epoch [1/1], Step [2750/5000]
+Epoch [1/1], Step [2760/5000]
+Epoch [1/1], Step [2770/5000]
+Epoch [1/1], Step [2780/5000]
+Epoch [1/1], Step [2790/5000]
+Epoch [1/1], Step [2800/5000]
+Epoch [1/1], Step [2810/5000]
+Epoch [1/1], Step [2820/5000]
+Epoch [1/1], Step [2830/5000]
+Epoch [1/1], Step [2840/5000]
+Epoch [1/1], Step [2850/5000]
+Epoch [1/1], Step [2860/5000]
+Epoch [1/1], Step [2870/5000]
+Epoch [1/1], Step [2880/5000]
+Epoch [1/1], Step [2890/5000]
+Epoch [1/1], Step [2900/5000]
+Epoch [1/1], Step [2910/5000]
+Epoch [1/1], Step [2920/5000]
+Epoch [1/1], Step [2930/5000]
+Epoch [1/1], Step [2940/5000]
+Epoch [1/1], Step [2950/5000]
+Epoch [1/1], Step [2960/5000]
+Epoch [1/1], Step [2970/5000]
+Epoch [1/1], Step [2980/5000]
+Epoch [1/1], Step [2990/5000]
+Epoch [1/1], Step [3000/5000]
+Epoch [1/1], Step [3010/5000]
+Epoch [1/1], Step [3020/5000]
+Epoch [1/1], Step [3030/5000]
+Epoch [1/1], Step [3040/5000]
+Epoch [1/1], Step [3050/5000]
+Epoch [1/1], Step [3060/5000]
+Epoch [1/1], Step [3070/5000]
+Epoch [1/1], Step [3080/5000]
+Epoch [1/1], Step [3090/5000]
+Epoch [1/1], Step [3100/5000]
+Epoch [1/1], Step [3110/5000]
+Epoch [1/1], Step [3120/5000]
+Epoch [1/1], Step [3130/5000]
+Epoch [1/1], Step [3140/5000]
+Epoch [1/1], Step [3150/5000]
+Epoch [1/1], Step [3160/5000]
+Epoch [1/1], Step [3170/5000]
+Epoch [1/1], Step [3180/5000]
+Epoch [1/1], Step [3190/5000]
+Epoch [1/1], Step [3200/5000]
+Epoch [1/1], Step [3210/5000]
+Epoch [1/1], Step [3220/5000]
+Epoch [1/1], Step [3230/5000]
+Epoch [1/1], Step [3240/5000]
+Epoch [1/1], Step [3250/5000]
+Epoch [1/1], Step [3260/5000]
+Epoch [1/1], Step [3270/5000]
+Epoch [1/1], Step [3280/5000]
+Epoch [1/1], Step [3290/5000]
+Epoch [1/1], Step [3300/5000]
+Epoch [1/1], Step [3310/5000]
+Epoch [1/1], Step [3320/5000]
+Epoch [1/1], Step [3330/5000]
+Epoch [1/1], Step [3340/5000]
+Epoch [1/1], Step [3350/5000]
+Epoch [1/1], Step [3360/5000]
+Epoch [1/1], Step [3370/5000]
+Epoch [1/1], Step [3380/5000]
+Epoch [1/1], Step [3390/5000]
+Epoch [1/1], Step [3400/5000]
+Epoch [1/1], Step [3410/5000]
+Epoch [1/1], Step [3420/5000]
+Epoch [1/1], Step [3430/5000]
+Epoch [1/1], Step [3440/5000]
+Epoch [1/1], Step [3450/5000]
+Epoch [1/1], Step [3460/5000]
+Epoch [1/1], Step [3470/5000]
+Epoch [1/1], Step [3480/5000]
+Epoch [1/1], Step [3490/5000]
+Epoch [1/1], Step [3500/5000]
+Epoch [1/1], Step [3510/5000]
+Epoch [1/1], Step [3520/5000]
+Epoch [1/1], Step [3530/5000]
+Epoch [1/1], Step [3540/5000]
+Epoch [1/1], Step [3550/5000]
+Epoch [1/1], Step [3560/5000]
+Epoch [1/1], Step [3570/5000]
+Epoch [1/1], Step [3580/5000]
+Epoch [1/1], Step [3590/5000]
+Epoch [1/1], Step [3600/5000]
+Epoch [1/1], Step [3610/5000]
+Epoch [1/1], Step [3620/5000]
+Epoch [1/1], Step [3630/5000]
+Epoch [1/1], Step [3640/5000]
+Epoch [1/1], Step [3650/5000]
+Epoch [1/1], Step [3660/5000]
+Epoch [1/1], Step [3670/5000]
+Epoch [1/1], Step [3680/5000]
+Epoch [1/1], Step [3690/5000]
+Epoch [1/1], Step [3700/5000]
+Epoch [1/1], Step [3710/5000]
+Epoch [1/1], Step [3720/5000]
+Epoch [1/1], Step [3730/5000]
+Epoch [1/1], Step [3740/5000]
+Epoch [1/1], Step [3750/5000]
+Epoch [1/1], Step [3760/5000]
+Epoch [1/1], Step [3770/5000]
+Epoch [1/1], Step [3780/5000]
+Epoch [1/1], Step [3790/5000]
+Epoch [1/1], Step [3800/5000]
+Epoch [1/1], Step [3810/5000]
+Epoch [1/1], Step [3820/5000]
+Epoch [1/1], Step [3830/5000]
+Epoch [1/1], Step [3840/5000]
+Epoch [1/1], Step [3850/5000]
+Epoch [1/1], Step [3860/5000]
+Epoch [1/1], Step [3870/5000]
+Epoch [1/1], Step [3880/5000]
+Epoch [1/1], Step [3890/5000]
+Epoch [1/1], Step [3900/5000]
+Epoch [1/1], Step [3910/5000]
+Epoch [1/1], Step [3920/5000]
+Epoch [1/1], Step [3930/5000]
+Epoch [1/1], Step [3940/5000]
+Epoch [1/1], Step [3950/5000]
+Epoch [1/1], Step [3960/5000]
+Epoch [1/1], Step [3970/5000]
+Epoch [1/1], Step [3980/5000]
+Epoch [1/1], Step [3990/5000]
+Epoch [1/1], Step [4000/5000]
+Epoch [1/1], Step [4010/5000]
+Epoch [1/1], Step [4020/5000]
+Epoch [1/1], Step [4030/5000]
+Epoch [1/1], Step [4040/5000]
+Epoch [1/1], Step [4050/5000]
+Epoch [1/1], Step [4060/5000]
+Epoch [1/1], Step [4070/5000]
+Epoch [1/1], Step [4080/5000]
+Epoch [1/1], Step [4090/5000]
+Epoch [1/1], Step [4100/5000]
+Epoch [1/1], Step [4110/5000]
+Epoch [1/1], Step [4120/5000]
+Epoch [1/1], Step [4130/5000]
+Epoch [1/1], Step [4140/5000]
+Epoch [1/1], Step [4150/5000]
+Epoch [1/1], Step [4160/5000]
+Epoch [1/1], Step [4170/5000]
+Epoch [1/1], Step [4180/5000]
+Epoch [1/1], Step [4190/5000]
+Epoch [1/1], Step [4200/5000]
+Epoch [1/1], Step [4210/5000]
+Epoch [1/1], Step [4220/5000]
+Epoch [1/1], Step [4230/5000]
+Epoch [1/1], Step [4240/5000]
+Epoch [1/1], Step [4250/5000]
+Epoch [1/1], Step [4260/5000]
+Epoch [1/1], Step [4270/5000]
+Epoch [1/1], Step [4280/5000]
+Epoch [1/1], Step [4290/5000]
+Epoch [1/1], Step [4300/5000]
+Epoch [1/1], Step [4310/5000]
+Epoch [1/1], Step [4320/5000]
+Epoch [1/1], Step [4330/5000]
+Epoch [1/1], Step [4340/5000]
+Epoch [1/1], Step [4350/5000]
+Epoch [1/1], Step [4360/5000]
+Epoch [1/1], Step [4370/5000]
+Epoch [1/1], Step [4380/5000]
+Epoch [1/1], Step [4390/5000]
+Epoch [1/1], Step [4400/5000]
+Epoch [1/1], Step [4410/5000]
+Epoch [1/1], Step [4420/5000]
+Epoch [1/1], Step [4430/5000]
+Epoch [1/1], Step [4440/5000]
+Epoch [1/1], Step [4450/5000]
+Epoch [1/1], Step [4460/5000]
+Epoch [1/1], Step [4470/5000]
+Epoch [1/1], Step [4480/5000]
+Epoch [1/1], Step [4490/5000]
+Epoch [1/1], Step [4500/5000]
+Epoch [1/1], Step [4510/5000]
+Epoch [1/1], Step [4520/5000]
+Epoch [1/1], Step [4530/5000]
+Epoch [1/1], Step [4540/5000]
+Epoch [1/1], Step [4550/5000]
+Epoch [1/1], Step [4560/5000]
+Epoch [1/1], Step [4570/5000]
+Epoch [1/1], Step [4580/5000]
+Epoch [1/1], Step [4590/5000]
+Epoch [1/1], Step [4600/5000]
+Epoch [1/1], Step [4610/5000]
+Epoch [1/1], Step [4620/5000]
+Epoch [1/1], Step [4630/5000]
+Epoch [1/1], Step [4640/5000]
+Epoch [1/1], Step [4650/5000]
+Epoch [1/1], Step [4660/5000]
+Epoch [1/1], Step [4670/5000]
+Epoch [1/1], Step [4680/5000]
+Epoch [1/1], Step [4690/5000]
+Epoch [1/1], Step [4700/5000]
+Epoch [1/1], Step [4710/5000]
+Epoch [1/1], Step [4720/5000]
+Epoch [1/1], Step [4730/5000]
+Epoch [1/1], Step [4740/5000]
+Epoch [1/1], Step [4750/5000]
+Epoch [1/1], Step [4760/5000]
+Epoch [1/1], Step [4770/5000]
+Epoch [1/1], Step [4780/5000]
+Epoch [1/1], Step [4790/5000]
+Epoch [1/1], Step [4800/5000]
+Epoch [1/1], Step [4810/5000]
+Epoch [1/1], Step [4820/5000]
+Epoch [1/1], Step [4830/5000]
+Epoch [1/1], Step [4840/5000]
+Epoch [1/1], Step [4850/5000]
+Epoch [1/1], Step [4860/5000]
+Epoch [1/1], Step [4870/5000]
+Epoch [1/1], Step [4880/5000]
+Epoch [1/1], Step [4890/5000]
+Epoch [1/1], Step [4900/5000]
+Epoch [1/1], Step [4910/5000]
+Epoch [1/1], Step [4920/5000]
+Epoch [1/1], Step [4930/5000]
+Epoch [1/1], Step [4940/5000]
+Epoch [1/1], Step [4950/5000]
+Epoch [1/1], Step [4960/5000]
+Epoch [1/1], Step [4970/5000]
+Epoch [1/1], Step [4980/5000]
+Epoch [1/1], Step [4990/5000]
+Epoch [1/1], Step [5000/5000]
+Accuracy of the network on the 10000 test images: 20.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 6.666666666666667 %
+Accuracy of the network on the 10000 test images: 5.0 %
+Accuracy of the network on the 10000 test images: 6.0 %
+Accuracy of the network on the 10000 test images: 6.666666666666667 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 11.25 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.909090909090908 %
+Accuracy of the network on the 10000 test images: 10.833333333333334 %
+Accuracy of the network on the 10000 test images: 11.538461538461538 %
+Accuracy of the network on the 10000 test images: 10.714285714285714 %
+Accuracy of the network on the 10000 test images: 10.666666666666666 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.411764705882353 %
+Accuracy of the network on the 10000 test images: 9.444444444444445 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.5 %
+Accuracy of the network on the 10000 test images: 9.523809523809524 %
+Accuracy of the network on the 10000 test images: 9.090909090909092 %
+Accuracy of the network on the 10000 test images: 9.130434782608695 %
+Accuracy of the network on the 10000 test images: 8.75 %
+Accuracy of the network on the 10000 test images: 8.8 %
+Accuracy of the network on the 10000 test images: 9.23076923076923 %
+Accuracy of the network on the 10000 test images: 8.88888888888889 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.655172413793103 %
+Accuracy of the network on the 10000 test images: 9.666666666666666 %
+Accuracy of the network on the 10000 test images: 9.67741935483871 %
+Accuracy of the network on the 10000 test images: 9.375 %
+Accuracy of the network on the 10000 test images: 9.696969696969697 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.714285714285714 %
+Accuracy of the network on the 10000 test images: 9.722222222222221 %
+Accuracy of the network on the 10000 test images: 9.72972972972973 %
+Accuracy of the network on the 10000 test images: 9.473684210526315 %
+Accuracy of the network on the 10000 test images: 9.23076923076923 %
+Accuracy of the network on the 10000 test images: 9.5 %
+Accuracy of the network on the 10000 test images: 9.268292682926829 %
+Accuracy of the network on the 10000 test images: 9.523809523809524 %
+Accuracy of the network on the 10000 test images: 9.534883720930232 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.777777777777779 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.212765957446809 %
+Accuracy of the network on the 10000 test images: 10.208333333333334 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.8 %
+Accuracy of the network on the 10000 test images: 9.607843137254902 %
+Accuracy of the network on the 10000 test images: 9.615384615384615 %
+Accuracy of the network on the 10000 test images: 9.433962264150944 %
+Accuracy of the network on the 10000 test images: 9.25925925925926 %
+Accuracy of the network on the 10000 test images: 9.090909090909092 %
+Accuracy of the network on the 10000 test images: 9.107142857142858 %
+Accuracy of the network on the 10000 test images: 9.12280701754386 %
+Accuracy of the network on the 10000 test images: 9.137931034482758 %
+Accuracy of the network on the 10000 test images: 9.152542372881356 %
+Accuracy of the network on the 10000 test images: 9.333333333333334 %
+Accuracy of the network on the 10000 test images: 9.508196721311476 %
+Accuracy of the network on the 10000 test images: 9.35483870967742 %
+Accuracy of the network on the 10000 test images: 9.206349206349206 %
+Accuracy of the network on the 10000 test images: 9.21875 %
+Accuracy of the network on the 10000 test images: 9.384615384615385 %
+Accuracy of the network on the 10000 test images: 9.393939393939394 %
+Accuracy of the network on the 10000 test images: 9.552238805970148 %
+Accuracy of the network on the 10000 test images: 9.852941176470589 %
+Accuracy of the network on the 10000 test images: 9.855072463768115 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.859154929577464 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.866666666666667 %
+Accuracy of the network on the 10000 test images: 9.736842105263158 %
+Accuracy of the network on the 10000 test images: 9.74025974025974 %
+Accuracy of the network on the 10000 test images: 9.615384615384615 %
+Accuracy of the network on the 10000 test images: 9.620253164556962 %
+Accuracy of the network on the 10000 test images: 9.75 %
+Accuracy of the network on the 10000 test images: 9.62962962962963 %
+Accuracy of the network on the 10000 test images: 9.75609756097561 %
+Accuracy of the network on the 10000 test images: 9.879518072289157 %
+Accuracy of the network on the 10000 test images: 9.880952380952381 %
+Accuracy of the network on the 10000 test images: 9.882352941176471 %
+Accuracy of the network on the 10000 test images: 9.767441860465116 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.227272727272727 %
+Accuracy of the network on the 10000 test images: 10.224719101123595 %
+Accuracy of the network on the 10000 test images: 10.333333333333334 %
+Accuracy of the network on the 10000 test images: 10.219780219780219 %
+Accuracy of the network on the 10000 test images: 10.326086956521738 %
+Accuracy of the network on the 10000 test images: 10.21505376344086 %
+Accuracy of the network on the 10000 test images: 10.212765957446809 %
+Accuracy of the network on the 10000 test images: 10.31578947368421 %
+Accuracy of the network on the 10000 test images: 10.416666666666666 %
+Accuracy of the network on the 10000 test images: 10.309278350515465 %
+Accuracy of the network on the 10000 test images: 10.204081632653061 %
+Accuracy of the network on the 10000 test images: 10.202020202020202 %
+Accuracy of the network on the 10000 test images: 10.3 %
+Accuracy of the network on the 10000 test images: 10.198019801980198 %
+Accuracy of the network on the 10000 test images: 10.196078431372548 %
+Accuracy of the network on the 10000 test images: 10.194174757281553 %
+Accuracy of the network on the 10000 test images: 10.384615384615385 %
+Accuracy of the network on the 10000 test images: 10.285714285714286 %
+Accuracy of the network on the 10000 test images: 10.471698113207546 %
+Accuracy of the network on the 10000 test images: 10.467289719626168 %
+Accuracy of the network on the 10000 test images: 10.555555555555555 %
+Accuracy of the network on the 10000 test images: 10.55045871559633 %
+Accuracy of the network on the 10000 test images: 10.454545454545455 %
+Accuracy of the network on the 10000 test images: 10.36036036036036 %
+Accuracy of the network on the 10000 test images: 10.357142857142858 %
+Accuracy of the network on the 10000 test images: 10.619469026548673 %
+Accuracy of the network on the 10000 test images: 10.526315789473685 %
+Accuracy of the network on the 10000 test images: 10.434782608695652 %
+Accuracy of the network on the 10000 test images: 10.344827586206897 %
+Accuracy of the network on the 10000 test images: 10.512820512820513 %
+Accuracy of the network on the 10000 test images: 10.59322033898305 %
+Accuracy of the network on the 10000 test images: 10.672268907563025 %
+Accuracy of the network on the 10000 test images: 10.583333333333334 %
+Accuracy of the network on the 10000 test images: 10.578512396694215 %
+Accuracy of the network on the 10000 test images: 10.573770491803279 %
+Accuracy of the network on the 10000 test images: 10.56910569105691 %
+Accuracy of the network on the 10000 test images: 10.483870967741936 %
+Accuracy of the network on the 10000 test images: 10.48 %
+Accuracy of the network on the 10000 test images: 10.396825396825397 %
+Accuracy of the network on the 10000 test images: 10.472440944881889 %
+Accuracy of the network on the 10000 test images: 10.546875 %
+Accuracy of the network on the 10000 test images: 10.542635658914728 %
+Accuracy of the network on the 10000 test images: 10.461538461538462 %
+Accuracy of the network on the 10000 test images: 10.381679389312977 %
+Accuracy of the network on the 10000 test images: 10.303030303030303 %
+Accuracy of the network on the 10000 test images: 10.225563909774436 %
+Accuracy of the network on the 10000 test images: 10.223880597014926 %
+Accuracy of the network on the 10000 test images: 10.222222222222221 %
+Accuracy of the network on the 10000 test images: 10.220588235294118 %
+Accuracy of the network on the 10000 test images: 10.218978102189782 %
+Accuracy of the network on the 10000 test images: 10.289855072463768 %
+Accuracy of the network on the 10000 test images: 10.287769784172662 %
+Accuracy of the network on the 10000 test images: 10.285714285714286 %
+Accuracy of the network on the 10000 test images: 10.212765957446809 %
+Accuracy of the network on the 10000 test images: 10.28169014084507 %
+Accuracy of the network on the 10000 test images: 10.20979020979021 %
+Accuracy of the network on the 10000 test images: 10.13888888888889 %
+Accuracy of the network on the 10000 test images: 10.206896551724139 %
+Accuracy of the network on the 10000 test images: 10.205479452054794 %
+Accuracy of the network on the 10000 test images: 10.204081632653061 %
+Accuracy of the network on the 10000 test images: 10.202702702702704 %
+Accuracy of the network on the 10000 test images: 10.134228187919463 %
+Accuracy of the network on the 10000 test images: 10.066666666666666 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.065359477124183 %
+Accuracy of the network on the 10000 test images: 10.12987012987013 %
+Accuracy of the network on the 10000 test images: 10.064516129032258 %
+Accuracy of the network on the 10000 test images: 10.064102564102564 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.936708860759493 %
+Accuracy of the network on the 10000 test images: 9.874213836477987 %
+Accuracy of the network on the 10000 test images: 10.0625 %
+Accuracy of the network on the 10000 test images: 10.248447204968944 %
+Accuracy of the network on the 10000 test images: 10.308641975308642 %
+Accuracy of the network on the 10000 test images: 10.306748466257668 %
+Accuracy of the network on the 10000 test images: 10.24390243902439 %
+Accuracy of the network on the 10000 test images: 10.181818181818182 %
+Accuracy of the network on the 10000 test images: 10.120481927710843 %
+Accuracy of the network on the 10000 test images: 10.179640718562874 %
+Accuracy of the network on the 10000 test images: 10.119047619047619 %
+Accuracy of the network on the 10000 test images: 10.059171597633137 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.942196531791907 %
+Accuracy of the network on the 10000 test images: 9.942528735632184 %
+Accuracy of the network on the 10000 test images: 9.885714285714286 %
+Accuracy of the network on the 10000 test images: 9.829545454545455 %
+Accuracy of the network on the 10000 test images: 9.774011299435028 %
+Accuracy of the network on the 10000 test images: 9.831460674157304 %
+Accuracy of the network on the 10000 test images: 9.94413407821229 %
+Accuracy of the network on the 10000 test images: 9.944444444444445 %
+Accuracy of the network on the 10000 test images: 9.88950276243094 %
+Accuracy of the network on the 10000 test images: 9.89010989010989 %
+Accuracy of the network on the 10000 test images: 9.836065573770492 %
+Accuracy of the network on the 10000 test images: 9.83695652173913 %
+Accuracy of the network on the 10000 test images: 9.837837837837839 %
+Accuracy of the network on the 10000 test images: 9.78494623655914 %
+Accuracy of the network on the 10000 test images: 9.786096256684491 %
+Accuracy of the network on the 10000 test images: 9.840425531914894 %
+Accuracy of the network on the 10000 test images: 9.894179894179894 %
+Accuracy of the network on the 10000 test images: 9.894736842105264 %
+Accuracy of the network on the 10000 test images: 9.947643979057592 %
+Accuracy of the network on the 10000 test images: 9.895833333333334 %
+Accuracy of the network on the 10000 test images: 9.844559585492227 %
+Accuracy of the network on the 10000 test images: 9.896907216494846 %
+Accuracy of the network on the 10000 test images: 9.897435897435898 %
+Accuracy of the network on the 10000 test images: 9.89795918367347 %
+Accuracy of the network on the 10000 test images: 9.898477157360405 %
+Accuracy of the network on the 10000 test images: 9.8989898989899 %
+Accuracy of the network on the 10000 test images: 9.899497487437186 %
+Accuracy of the network on the 10000 test images: 9.95 %
+Accuracy of the network on the 10000 test images: 9.900497512437811 %
+Accuracy of the network on the 10000 test images: 9.900990099009901 %
+Accuracy of the network on the 10000 test images: 9.901477832512315 %
+Accuracy of the network on the 10000 test images: 9.901960784313726 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.952380952380953 %
+Accuracy of the network on the 10000 test images: 9.95260663507109 %
+Accuracy of the network on the 10000 test images: 9.90566037735849 %
+Accuracy of the network on the 10000 test images: 9.859154929577464 %
+Accuracy of the network on the 10000 test images: 9.85981308411215 %
+Accuracy of the network on the 10000 test images: 9.86046511627907 %
+Accuracy of the network on the 10000 test images: 9.86111111111111 %
+Accuracy of the network on the 10000 test images: 9.815668202764977 %
+Accuracy of the network on the 10000 test images: 9.908256880733944 %
+Accuracy of the network on the 10000 test images: 9.908675799086758 %
+Accuracy of the network on the 10000 test images: 9.863636363636363 %
+Accuracy of the network on the 10000 test images: 9.864253393665159 %
+Accuracy of the network on the 10000 test images: 9.81981981981982 %
+Accuracy of the network on the 10000 test images: 9.77578475336323 %
+Accuracy of the network on the 10000 test images: 9.866071428571429 %
+Accuracy of the network on the 10000 test images: 9.866666666666667 %
+Accuracy of the network on the 10000 test images: 9.91150442477876 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.956140350877194 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.956521739130435 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.957081545064378 %
+Accuracy of the network on the 10000 test images: 9.914529914529915 %
+Accuracy of the network on the 10000 test images: 9.872340425531915 %
+Accuracy of the network on the 10000 test images: 9.872881355932204 %
+Accuracy of the network on the 10000 test images: 9.873417721518987 %
+Accuracy of the network on the 10000 test images: 9.831932773109244 %
+Accuracy of the network on the 10000 test images: 9.790794979079498 %
+Accuracy of the network on the 10000 test images: 9.75 %
+Accuracy of the network on the 10000 test images: 9.792531120331951 %
+Accuracy of the network on the 10000 test images: 9.793388429752065 %
+Accuracy of the network on the 10000 test images: 9.794238683127572 %
+Accuracy of the network on the 10000 test images: 9.754098360655737 %
+Accuracy of the network on the 10000 test images: 9.755102040816327 %
+Accuracy of the network on the 10000 test images: 9.75609756097561 %
+Accuracy of the network on the 10000 test images: 9.7165991902834 %
+Accuracy of the network on the 10000 test images: 9.67741935483871 %
+Accuracy of the network on the 10000 test images: 9.67871485943775 %
+Accuracy of the network on the 10000 test images: 9.68 %
+Accuracy of the network on the 10000 test images: 9.681274900398407 %
+Accuracy of the network on the 10000 test images: 9.642857142857142 %
+Accuracy of the network on the 10000 test images: 9.723320158102768 %
+Accuracy of the network on the 10000 test images: 9.68503937007874 %
+Accuracy of the network on the 10000 test images: 9.686274509803921 %
+Accuracy of the network on the 10000 test images: 9.6484375 %
+Accuracy of the network on the 10000 test images: 9.649805447470817 %
+Accuracy of the network on the 10000 test images: 9.612403100775193 %
+Accuracy of the network on the 10000 test images: 9.613899613899614 %
+Accuracy of the network on the 10000 test images: 9.615384615384615 %
+Accuracy of the network on the 10000 test images: 9.616858237547893 %
+Accuracy of the network on the 10000 test images: 9.65648854961832 %
+Accuracy of the network on the 10000 test images: 9.61977186311787 %
+Accuracy of the network on the 10000 test images: 9.659090909090908 %
+Accuracy of the network on the 10000 test images: 9.69811320754717 %
+Accuracy of the network on the 10000 test images: 9.661654135338345 %
+Accuracy of the network on the 10000 test images: 9.700374531835205 %
+Accuracy of the network on the 10000 test images: 9.664179104477611 %
+Accuracy of the network on the 10000 test images: 9.66542750929368 %
+Accuracy of the network on the 10000 test images: 9.666666666666666 %
+Accuracy of the network on the 10000 test images: 9.66789667896679 %
+Accuracy of the network on the 10000 test images: 9.632352941176471 %
+Accuracy of the network on the 10000 test images: 9.633699633699633 %
+Accuracy of the network on the 10000 test images: 9.635036496350365 %
+Accuracy of the network on the 10000 test images: 9.636363636363637 %
+Accuracy of the network on the 10000 test images: 9.673913043478262 %
+Accuracy of the network on the 10000 test images: 9.63898916967509 %
+Accuracy of the network on the 10000 test images: 9.676258992805755 %
+Accuracy of the network on the 10000 test images: 9.67741935483871 %
+Accuracy of the network on the 10000 test images: 9.714285714285714 %
+Accuracy of the network on the 10000 test images: 9.715302491103202 %
+Accuracy of the network on the 10000 test images: 9.71631205673759 %
+Accuracy of the network on the 10000 test images: 9.787985865724382 %
+Accuracy of the network on the 10000 test images: 9.859154929577464 %
+Accuracy of the network on the 10000 test images: 9.859649122807017 %
+Accuracy of the network on the 10000 test images: 9.86013986013986 %
+Accuracy of the network on the 10000 test images: 9.825783972125436 %
+Accuracy of the network on the 10000 test images: 9.86111111111111 %
+Accuracy of the network on the 10000 test images: 9.826989619377162 %
+Accuracy of the network on the 10000 test images: 9.827586206896552 %
+Accuracy of the network on the 10000 test images: 9.828178694158076 %
+Accuracy of the network on the 10000 test images: 9.794520547945206 %
+Accuracy of the network on the 10000 test images: 9.829351535836178 %
+Accuracy of the network on the 10000 test images: 9.829931972789115 %
+Accuracy of the network on the 10000 test images: 9.864406779661017 %
+Accuracy of the network on the 10000 test images: 9.864864864864865 %
+Accuracy of the network on the 10000 test images: 9.865319865319865 %
+Accuracy of the network on the 10000 test images: 9.865771812080537 %
+Accuracy of the network on the 10000 test images: 9.832775919732441 %
+Accuracy of the network on the 10000 test images: 9.833333333333334 %
+Accuracy of the network on the 10000 test images: 9.800664451827242 %
+Accuracy of the network on the 10000 test images: 9.834437086092715 %
+Accuracy of the network on the 10000 test images: 9.834983498349835 %
+Accuracy of the network on the 10000 test images: 9.868421052631579 %
+Accuracy of the network on the 10000 test images: 9.868852459016393 %
+Accuracy of the network on the 10000 test images: 9.869281045751634 %
+Accuracy of the network on the 10000 test images: 9.90228013029316 %
+Accuracy of the network on the 10000 test images: 9.902597402597403 %
+Accuracy of the network on the 10000 test images: 9.902912621359222 %
+Accuracy of the network on the 10000 test images: 9.870967741935484 %
+Accuracy of the network on the 10000 test images: 9.839228295819936 %
+Accuracy of the network on the 10000 test images: 9.83974358974359 %
+Accuracy of the network on the 10000 test images: 9.87220447284345 %
+Accuracy of the network on the 10000 test images: 9.872611464968152 %
+Accuracy of the network on the 10000 test images: 9.873015873015873 %
+Accuracy of the network on the 10000 test images: 9.841772151898734 %
+Accuracy of the network on the 10000 test images: 9.810725552050473 %
+Accuracy of the network on the 10000 test images: 9.779874213836479 %
+Accuracy of the network on the 10000 test images: 9.81191222570533 %
+Accuracy of the network on the 10000 test images: 9.84375 %
+Accuracy of the network on the 10000 test images: 9.813084112149532 %
+Accuracy of the network on the 10000 test images: 9.782608695652174 %
+Accuracy of the network on the 10000 test images: 9.814241486068111 %
+Accuracy of the network on the 10000 test images: 9.876543209876543 %
+Accuracy of the network on the 10000 test images: 9.907692307692308 %
+Accuracy of the network on the 10000 test images: 9.938650306748466 %
+Accuracy of the network on the 10000 test images: 9.938837920489297 %
+Accuracy of the network on the 10000 test images: 9.908536585365853 %
+Accuracy of the network on the 10000 test images: 9.908814589665653 %
+Accuracy of the network on the 10000 test images: 9.909090909090908 %
+Accuracy of the network on the 10000 test images: 9.879154078549849 %
+Accuracy of the network on the 10000 test images: 9.879518072289157 %
+Accuracy of the network on the 10000 test images: 9.90990990990991 %
+Accuracy of the network on the 10000 test images: 9.880239520958083 %
+Accuracy of the network on the 10000 test images: 9.880597014925373 %
+Accuracy of the network on the 10000 test images: 9.910714285714286 %
+Accuracy of the network on the 10000 test images: 9.881305637982196 %
+Accuracy of the network on the 10000 test images: 9.85207100591716 %
+Accuracy of the network on the 10000 test images: 9.85250737463127 %
+Accuracy of the network on the 10000 test images: 9.882352941176471 %
+Accuracy of the network on the 10000 test images: 9.853372434017595 %
+Accuracy of the network on the 10000 test images: 9.883040935672515 %
+Accuracy of the network on the 10000 test images: 9.854227405247814 %
+Accuracy of the network on the 10000 test images: 9.825581395348838 %
+Accuracy of the network on the 10000 test images: 9.797101449275363 %
+Accuracy of the network on the 10000 test images: 9.797687861271676 %
+Accuracy of the network on the 10000 test images: 9.798270893371757 %
+Accuracy of the network on the 10000 test images: 9.798850574712644 %
+Accuracy of the network on the 10000 test images: 9.799426934097422 %
+Accuracy of the network on the 10000 test images: 9.8 %
+Accuracy of the network on the 10000 test images: 9.82905982905983 %
+Accuracy of the network on the 10000 test images: 9.829545454545455 %
+Accuracy of the network on the 10000 test images: 9.80169971671388 %
+Accuracy of the network on the 10000 test images: 9.80225988700565 %
+Accuracy of the network on the 10000 test images: 9.774647887323944 %
+Accuracy of the network on the 10000 test images: 9.747191011235955 %
+Accuracy of the network on the 10000 test images: 9.719887955182072 %
+Accuracy of the network on the 10000 test images: 9.776536312849162 %
+Accuracy of the network on the 10000 test images: 9.777158774373259 %
+Accuracy of the network on the 10000 test images: 9.777777777777779 %
+Accuracy of the network on the 10000 test images: 9.833795013850416 %
+Accuracy of the network on the 10000 test images: 9.861878453038674 %
+Accuracy of the network on the 10000 test images: 9.862258953168045 %
+Accuracy of the network on the 10000 test images: 9.89010989010989 %
+Accuracy of the network on the 10000 test images: 9.917808219178083 %
+Accuracy of the network on the 10000 test images: 9.918032786885245 %
+Accuracy of the network on the 10000 test images: 9.89100817438692 %
+Accuracy of the network on the 10000 test images: 9.891304347826088 %
+Accuracy of the network on the 10000 test images: 9.89159891598916 %
+Accuracy of the network on the 10000 test images: 9.864864864864865 %
+Accuracy of the network on the 10000 test images: 9.865229110512129 %
+Accuracy of the network on the 10000 test images: 9.89247311827957 %
+Accuracy of the network on the 10000 test images: 9.865951742627345 %
+Accuracy of the network on the 10000 test images: 9.866310160427808 %
+Accuracy of the network on the 10000 test images: 9.866666666666667 %
+Accuracy of the network on the 10000 test images: 9.867021276595745 %
+Accuracy of the network on the 10000 test images: 9.840848806366047 %
+Accuracy of the network on the 10000 test images: 9.841269841269842 %
+Accuracy of the network on the 10000 test images: 9.841688654353563 %
+Accuracy of the network on the 10000 test images: 9.842105263157896 %
+Accuracy of the network on the 10000 test images: 9.816272965879264 %
+Accuracy of the network on the 10000 test images: 9.842931937172775 %
+Accuracy of the network on the 10000 test images: 9.817232375979112 %
+Accuracy of the network on the 10000 test images: 9.817708333333334 %
+Accuracy of the network on the 10000 test images: 9.792207792207792 %
+Accuracy of the network on the 10000 test images: 9.792746113989637 %
+Accuracy of the network on the 10000 test images: 9.819121447028424 %
+Accuracy of the network on the 10000 test images: 9.793814432989691 %
+Accuracy of the network on the 10000 test images: 9.794344473007712 %
+Accuracy of the network on the 10000 test images: 9.76923076923077 %
+Accuracy of the network on the 10000 test images: 9.820971867007673 %
+Accuracy of the network on the 10000 test images: 9.795918367346939 %
+Accuracy of the network on the 10000 test images: 9.84732824427481 %
+Accuracy of the network on the 10000 test images: 9.82233502538071 %
+Accuracy of the network on the 10000 test images: 9.79746835443038 %
+Accuracy of the network on the 10000 test images: 9.797979797979798 %
+Accuracy of the network on the 10000 test images: 9.773299748110832 %
+Accuracy of the network on the 10000 test images: 9.773869346733669 %
+Accuracy of the network on the 10000 test images: 9.74937343358396 %
+Accuracy of the network on the 10000 test images: 9.725 %
+Accuracy of the network on the 10000 test images: 9.70074812967581 %
+Accuracy of the network on the 10000 test images: 9.701492537313433 %
+Accuracy of the network on the 10000 test images: 9.67741935483871 %
+Accuracy of the network on the 10000 test images: 9.678217821782178 %
+Accuracy of the network on the 10000 test images: 9.679012345679013 %
+Accuracy of the network on the 10000 test images: 9.679802955665025 %
+Accuracy of the network on the 10000 test images: 9.656019656019655 %
+Accuracy of the network on the 10000 test images: 9.681372549019608 %
+Accuracy of the network on the 10000 test images: 9.657701711491443 %
+Accuracy of the network on the 10000 test images: 9.707317073170731 %
+Accuracy of the network on the 10000 test images: 9.732360097323602 %
+Accuracy of the network on the 10000 test images: 9.70873786407767 %
+Accuracy of the network on the 10000 test images: 9.685230024213075 %
+Accuracy of the network on the 10000 test images: 9.66183574879227 %
+Accuracy of the network on the 10000 test images: 9.686746987951807 %
+Accuracy of the network on the 10000 test images: 9.711538461538462 %
+Accuracy of the network on the 10000 test images: 9.712230215827338 %
+Accuracy of the network on the 10000 test images: 9.736842105263158 %
+Accuracy of the network on the 10000 test images: 9.713603818615752 %
+Accuracy of the network on the 10000 test images: 9.738095238095237 %
+Accuracy of the network on the 10000 test images: 9.71496437054632 %
+Accuracy of the network on the 10000 test images: 9.71563981042654 %
+Accuracy of the network on the 10000 test images: 9.692671394799055 %
+Accuracy of the network on the 10000 test images: 9.669811320754716 %
+Accuracy of the network on the 10000 test images: 9.670588235294117 %
+Accuracy of the network on the 10000 test images: 9.647887323943662 %
+Accuracy of the network on the 10000 test images: 9.648711943793911 %
+Accuracy of the network on the 10000 test images: 9.649532710280374 %
+Accuracy of the network on the 10000 test images: 9.65034965034965 %
+Accuracy of the network on the 10000 test images: 9.627906976744185 %
+Accuracy of the network on the 10000 test images: 9.651972157772622 %
+Accuracy of the network on the 10000 test images: 9.62962962962963 %
+Accuracy of the network on the 10000 test images: 9.607390300230946 %
+Accuracy of the network on the 10000 test images: 9.608294930875577 %
+Accuracy of the network on the 10000 test images: 9.632183908045977 %
+Accuracy of the network on the 10000 test images: 9.63302752293578 %
+Accuracy of the network on the 10000 test images: 9.610983981693364 %
+Accuracy of the network on the 10000 test images: 9.61187214611872 %
+Accuracy of the network on the 10000 test images: 9.58997722095672 %
+Accuracy of the network on the 10000 test images: 9.613636363636363 %
+Accuracy of the network on the 10000 test images: 9.65986394557823 %
+Accuracy of the network on the 10000 test images: 9.638009049773755 %
+Accuracy of the network on the 10000 test images: 9.63882618510158 %
+Accuracy of the network on the 10000 test images: 9.63963963963964 %
+Accuracy of the network on the 10000 test images: 9.640449438202246 %
+Accuracy of the network on the 10000 test images: 9.663677130044842 %
+Accuracy of the network on the 10000 test images: 9.686800894854587 %
+Accuracy of the network on the 10000 test images: 9.665178571428571 %
+Accuracy of the network on the 10000 test images: 9.688195991091314 %
+Accuracy of the network on the 10000 test images: 9.71111111111111 %
+Accuracy of the network on the 10000 test images: 9.711751662971174 %
+Accuracy of the network on the 10000 test images: 9.690265486725664 %
+Accuracy of the network on the 10000 test images: 9.735099337748345 %
+Accuracy of the network on the 10000 test images: 9.73568281938326 %
+Accuracy of the network on the 10000 test images: 9.780219780219781 %
+Accuracy of the network on the 10000 test images: 9.802631578947368 %
+Accuracy of the network on the 10000 test images: 9.803063457330415 %
+Accuracy of the network on the 10000 test images: 9.803493449781659 %
+Accuracy of the network on the 10000 test images: 9.825708061002178 %
+Accuracy of the network on the 10000 test images: 9.804347826086957 %
+Accuracy of the network on the 10000 test images: 9.804772234273319 %
+Accuracy of the network on the 10000 test images: 9.848484848484848 %
+Accuracy of the network on the 10000 test images: 9.82721382289417 %
+Accuracy of the network on the 10000 test images: 9.827586206896552 %
+Accuracy of the network on the 10000 test images: 9.827956989247312 %
+Accuracy of the network on the 10000 test images: 9.82832618025751 %
+Accuracy of the network on the 10000 test images: 9.828693790149893 %
+Accuracy of the network on the 10000 test images: 9.82905982905983 %
+Accuracy of the network on the 10000 test images: 9.850746268656716 %
+Accuracy of the network on the 10000 test images: 9.829787234042554 %
+Accuracy of the network on the 10000 test images: 9.851380042462845 %
+Accuracy of the network on the 10000 test images: 9.872881355932204 %
+Accuracy of the network on the 10000 test images: 9.85200845665962 %
+Accuracy of the network on the 10000 test images: 9.831223628691983 %
+Accuracy of the network on the 10000 test images: 9.810526315789474 %
+Accuracy of the network on the 10000 test images: 9.8109243697479 %
+Accuracy of the network on the 10000 test images: 9.832285115303984 %
+Accuracy of the network on the 10000 test images: 9.832635983263598 %
+Accuracy of the network on the 10000 test images: 9.832985386221294 %
+Accuracy of the network on the 10000 test images: 9.8125 %
+Accuracy of the network on the 10000 test images: 9.833679833679835 %
+Accuracy of the network on the 10000 test images: 9.854771784232366 %
+Accuracy of the network on the 10000 test images: 9.875776397515528 %
+Accuracy of the network on the 10000 test images: 9.87603305785124 %
+Accuracy of the network on the 10000 test images: 9.876288659793815 %
+Accuracy of the network on the 10000 test images: 9.8559670781893 %
+Accuracy of the network on the 10000 test images: 9.876796714579056 %
+Accuracy of the network on the 10000 test images: 9.87704918032787 %
+Accuracy of the network on the 10000 test images: 9.877300613496933 %
+Accuracy of the network on the 10000 test images: 9.857142857142858 %
+Accuracy of the network on the 10000 test images: 9.85743380855397 %
+Accuracy of the network on the 10000 test images: 9.878048780487806 %
+Accuracy of the network on the 10000 test images: 9.858012170385395 %
+Accuracy of the network on the 10000 test images: 9.898785425101215 %
+Accuracy of the network on the 10000 test images: 9.878787878787879 %
+Accuracy of the network on the 10000 test images: 9.858870967741936 %
+Accuracy of the network on the 10000 test images: 9.899396378269618 %
+Accuracy of the network on the 10000 test images: 9.899598393574298 %
+Accuracy of the network on the 10000 test images: 9.919839679358718 %
+Accuracy of the network on the 10000 test images: 9.94 %
+Accuracy of the network on the 10000 test images: 9.940119760479043 %
+Accuracy of the network on the 10000 test images: 9.9402390438247 %
+Accuracy of the network on the 10000 test images: 9.940357852882704 %
+Accuracy of the network on the 10000 test images: 9.94047619047619 %
+Accuracy of the network on the 10000 test images: 9.94059405940594 %
+Accuracy of the network on the 10000 test images: 9.940711462450594 %
+Accuracy of the network on the 10000 test images: 9.921104536489151 %
+Accuracy of the network on the 10000 test images: 9.901574803149606 %
+Accuracy of the network on the 10000 test images: 9.921414538310412 %
+Accuracy of the network on the 10000 test images: 9.901960784313726 %
+Accuracy of the network on the 10000 test images: 9.902152641878669 %
+Accuracy of the network on the 10000 test images: 9.8828125 %
+Accuracy of the network on the 10000 test images: 9.883040935672515 %
+Accuracy of the network on the 10000 test images: 9.863813229571985 %
+Accuracy of the network on the 10000 test images: 9.883495145631068 %
+Accuracy of the network on the 10000 test images: 9.883720930232558 %
+Accuracy of the network on the 10000 test images: 9.88394584139265 %
+Accuracy of the network on the 10000 test images: 9.884169884169884 %
+Accuracy of the network on the 10000 test images: 9.884393063583815 %
+Accuracy of the network on the 10000 test images: 9.903846153846153 %
+Accuracy of the network on the 10000 test images: 9.942418426103647 %
+Accuracy of the network on the 10000 test images: 9.96168582375479 %
+Accuracy of the network on the 10000 test images: 9.961759082217974 %
+Accuracy of the network on the 10000 test images: 9.961832061068701 %
+Accuracy of the network on the 10000 test images: 9.942857142857143 %
+Accuracy of the network on the 10000 test images: 9.923954372623575 %
+Accuracy of the network on the 10000 test images: 9.924098671726755 %
+Accuracy of the network on the 10000 test images: 9.924242424242424 %
+Accuracy of the network on the 10000 test images: 9.92438563327032 %
+Accuracy of the network on the 10000 test images: 9.924528301886792 %
+Accuracy of the network on the 10000 test images: 9.943502824858758 %
+Accuracy of the network on the 10000 test images: 9.943609022556391 %
+Accuracy of the network on the 10000 test images: 9.924953095684803 %
+Accuracy of the network on the 10000 test images: 9.925093632958802 %
+Accuracy of the network on the 10000 test images: 9.962616822429906 %
+Accuracy of the network on the 10000 test images: 9.944029850746269 %
+Accuracy of the network on the 10000 test images: 9.962756052141527 %
+Accuracy of the network on the 10000 test images: 9.944237918215613 %
+Accuracy of the network on the 10000 test images: 9.962894248608535 %
+Accuracy of the network on the 10000 test images: 9.944444444444445 %
+Accuracy of the network on the 10000 test images: 9.926062846580407 %
+Accuracy of the network on the 10000 test images: 9.944649446494465 %
+Accuracy of the network on the 10000 test images: 9.94475138121547 %
+Accuracy of the network on the 10000 test images: 9.944852941176471 %
+Accuracy of the network on the 10000 test images: 9.926605504587156 %
+Accuracy of the network on the 10000 test images: 9.926739926739927 %
+Accuracy of the network on the 10000 test images: 9.908592321755027 %
+Accuracy of the network on the 10000 test images: 9.908759124087592 %
+Accuracy of the network on the 10000 test images: 9.908925318761383 %
+Accuracy of the network on the 10000 test images: 9.945454545454545 %
+Accuracy of the network on the 10000 test images: 9.945553539019963 %
+Accuracy of the network on the 10000 test images: 9.96376811594203 %
+Accuracy of the network on the 10000 test images: 9.981916817359854 %
+Accuracy of the network on the 10000 test images: 10.018050541516246 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.017953321364452 %
+Accuracy of the network on the 10000 test images: 10.03584229390681 %
+Accuracy of the network on the 10000 test images: 10.035778175313059 %
+Accuracy of the network on the 10000 test images: 10.053571428571429 %
+Accuracy of the network on the 10000 test images: 10.053475935828876 %
+Accuracy of the network on the 10000 test images: 10.0355871886121 %
+Accuracy of the network on the 10000 test images: 10.035523978685612 %
+Accuracy of the network on the 10000 test images: 10.070921985815604 %
+Accuracy of the network on the 10000 test images: 10.053097345132743 %
+Accuracy of the network on the 10000 test images: 10.070671378091873 %
+Accuracy of the network on the 10000 test images: 10.052910052910052 %
+Accuracy of the network on the 10000 test images: 10.05281690140845 %
+Accuracy of the network on the 10000 test images: 10.07029876977153 %
+Accuracy of the network on the 10000 test images: 10.052631578947368 %
+Accuracy of the network on the 10000 test images: 10.070052539404553 %
+Accuracy of the network on the 10000 test images: 10.052447552447552 %
+Accuracy of the network on the 10000 test images: 10.034904013961606 %
+Accuracy of the network on the 10000 test images: 10.05226480836237 %
+Accuracy of the network on the 10000 test images: 10.034782608695652 %
+Accuracy of the network on the 10000 test images: 10.052083333333334 %
+Accuracy of the network on the 10000 test images: 10.051993067590988 %
+Accuracy of the network on the 10000 test images: 10.069204152249135 %
+Accuracy of the network on the 10000 test images: 10.05181347150259 %
+Accuracy of the network on the 10000 test images: 10.03448275862069 %
+Accuracy of the network on the 10000 test images: 10.017211703958692 %
+Accuracy of the network on the 10000 test images: 10.034364261168385 %
+Accuracy of the network on the 10000 test images: 10.051457975986278 %
+Accuracy of the network on the 10000 test images: 10.068493150684931 %
+Accuracy of the network on the 10000 test images: 10.051282051282051 %
+Accuracy of the network on the 10000 test images: 10.06825938566553 %
+Accuracy of the network on the 10000 test images: 10.051107325383304 %
+Accuracy of the network on the 10000 test images: 10.051020408163266 %
+Accuracy of the network on the 10000 test images: 10.0509337860781 %
+Accuracy of the network on the 10000 test images: 10.05084745762712 %
+Accuracy of the network on the 10000 test images: 10.050761421319796 %
+Accuracy of the network on the 10000 test images: 10.050675675675675 %
+Accuracy of the network on the 10000 test images: 10.050590219224283 %
+Accuracy of the network on the 10000 test images: 10.05050505050505 %
+Accuracy of the network on the 10000 test images: 10.050420168067227 %
+Accuracy of the network on the 10000 test images: 10.033557046979865 %
+Accuracy of the network on the 10000 test images: 10.01675041876047 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.01669449081803 %
+Accuracy of the network on the 10000 test images: 10.016666666666667 %
+Accuracy of the network on the 10000 test images: 10.033277870216306 %
+Accuracy of the network on the 10000 test images: 10.016611295681063 %
+Accuracy of the network on the 10000 test images: 10.049751243781095 %
+Accuracy of the network on the 10000 test images: 10.033112582781458 %
+Accuracy of the network on the 10000 test images: 10.016528925619834 %
+Accuracy of the network on the 10000 test images: 10.016501650165017 %
+Accuracy of the network on the 10000 test images: 10.032948929159803 %
+Accuracy of the network on the 10000 test images: 10.049342105263158 %
+Accuracy of the network on the 10000 test images: 10.032840722495894 %
+Accuracy of the network on the 10000 test images: 10.01639344262295 %
+Accuracy of the network on the 10000 test images: 10.016366612111293 %
+Accuracy of the network on the 10000 test images: 10.016339869281046 %
+Accuracy of the network on the 10000 test images: 10.0163132137031 %
+Accuracy of the network on the 10000 test images: 10.06514657980456 %
+Accuracy of the network on the 10000 test images: 10.048780487804878 %
+Accuracy of the network on the 10000 test images: 10.032467532467532 %
+Accuracy of the network on the 10000 test images: 10.048622366288493 %
+Accuracy of the network on the 10000 test images: 10.064724919093852 %
+Accuracy of the network on the 10000 test images: 10.048465266558965 %
+Accuracy of the network on the 10000 test images: 10.048387096774194 %
+Accuracy of the network on the 10000 test images: 10.096618357487923 %
+Accuracy of the network on the 10000 test images: 10.096463022508038 %
+Accuracy of the network on the 10000 test images: 10.096308186195827 %
+Accuracy of the network on the 10000 test images: 10.096153846153847 %
+Accuracy of the network on the 10000 test images: 10.08 %
+Accuracy of the network on the 10000 test images: 10.063897763578275 %
+Accuracy of the network on the 10000 test images: 10.047846889952153 %
+Accuracy of the network on the 10000 test images: 10.031847133757962 %
+Accuracy of the network on the 10000 test images: 10.031796502384738 %
+Accuracy of the network on the 10000 test images: 10.063492063492063 %
+Accuracy of the network on the 10000 test images: 10.047543581616482 %
+Accuracy of the network on the 10000 test images: 10.04746835443038 %
+Accuracy of the network on the 10000 test images: 10.031595576619273 %
+Accuracy of the network on the 10000 test images: 10.047318611987382 %
+Accuracy of the network on the 10000 test images: 10.062992125984252 %
+Accuracy of the network on the 10000 test images: 10.047169811320755 %
+Accuracy of the network on the 10000 test images: 10.047095761381476 %
+Accuracy of the network on the 10000 test images: 10.047021943573668 %
+Accuracy of the network on the 10000 test images: 10.062597809076681 %
+Accuracy of the network on the 10000 test images: 10.0625 %
+Accuracy of the network on the 10000 test images: 10.062402496099844 %
+Accuracy of the network on the 10000 test images: 10.046728971962617 %
+Accuracy of the network on the 10000 test images: 10.031104199066874 %
+Accuracy of the network on the 10000 test images: 10.031055900621118 %
+Accuracy of the network on the 10000 test images: 10.046511627906977 %
+Accuracy of the network on the 10000 test images: 10.030959752321982 %
+Accuracy of the network on the 10000 test images: 10.061823802163833 %
+Accuracy of the network on the 10000 test images: 10.046296296296296 %
+Accuracy of the network on the 10000 test images: 10.030816640986133 %
+Accuracy of the network on the 10000 test images: 10.015384615384615 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.015290519877675 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.984779299847792 %
+Accuracy of the network on the 10000 test images: 9.984802431610943 %
+Accuracy of the network on the 10000 test images: 9.984825493171472 %
+Accuracy of the network on the 10000 test images: 9.984848484848484 %
+Accuracy of the network on the 10000 test images: 9.969742813918305 %
+Accuracy of the network on the 10000 test images: 9.954682779456194 %
+Accuracy of the network on the 10000 test images: 9.939668174962293 %
+Accuracy of the network on the 10000 test images: 9.924698795180722 %
+Accuracy of the network on the 10000 test images: 9.924812030075188 %
+Accuracy of the network on the 10000 test images: 9.90990990990991 %
+Accuracy of the network on the 10000 test images: 9.89505247376312 %
+Accuracy of the network on the 10000 test images: 9.895209580838323 %
+Accuracy of the network on the 10000 test images: 9.910313901345292 %
+Accuracy of the network on the 10000 test images: 9.925373134328359 %
+Accuracy of the network on the 10000 test images: 9.940387481371088 %
+Accuracy of the network on the 10000 test images: 9.94047619047619 %
+Accuracy of the network on the 10000 test images: 9.955423476968797 %
+Accuracy of the network on the 10000 test images: 9.955489614243323 %
+Accuracy of the network on the 10000 test images: 9.955555555555556 %
+Accuracy of the network on the 10000 test images: 9.940828402366863 %
+Accuracy of the network on the 10000 test images: 9.940915805022156 %
+Accuracy of the network on the 10000 test images: 9.941002949852507 %
+Accuracy of the network on the 10000 test images: 9.970544918998527 %
+Accuracy of the network on the 10000 test images: 9.985294117647058 %
+Accuracy of the network on the 10000 test images: 9.970631424375918 %
+Accuracy of the network on the 10000 test images: 9.956011730205278 %
+Accuracy of the network on the 10000 test images: 9.985358711566619 %
+Accuracy of the network on the 10000 test images: 9.985380116959064 %
+Accuracy of the network on the 10000 test images: 9.985401459854014 %
+Accuracy of the network on the 10000 test images: 9.98542274052478 %
+Accuracy of the network on the 10000 test images: 9.985443959243085 %
+Accuracy of the network on the 10000 test images: 9.98546511627907 %
+Accuracy of the network on the 10000 test images: 9.970972423802612 %
+Accuracy of the network on the 10000 test images: 9.985507246376812 %
+Accuracy of the network on the 10000 test images: 9.985528219971057 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.985569985569986 %
+Accuracy of the network on the 10000 test images: 9.985590778097983 %
+Accuracy of the network on the 10000 test images: 9.985611510791367 %
+Accuracy of the network on the 10000 test images: 9.971264367816092 %
+Accuracy of the network on the 10000 test images: 9.956958393113343 %
+Accuracy of the network on the 10000 test images: 9.97134670487106 %
+Accuracy of the network on the 10000 test images: 9.957081545064378 %
+Accuracy of the network on the 10000 test images: 9.971428571428572 %
+Accuracy of the network on the 10000 test images: 9.985734664764623 %
+Accuracy of the network on the 10000 test images: 10.014245014245015 %
+Accuracy of the network on the 10000 test images: 10.014224751066857 %
+Accuracy of the network on the 10000 test images: 10.014204545454545 %
+Accuracy of the network on the 10000 test images: 10.01418439716312 %
+Accuracy of the network on the 10000 test images: 10.01416430594901 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.98589562764457 %
+Accuracy of the network on the 10000 test images: 9.985915492957746 %
+Accuracy of the network on the 10000 test images: 9.985935302390999 %
+Accuracy of the network on the 10000 test images: 9.985955056179776 %
+Accuracy of the network on the 10000 test images: 9.97194950911641 %
+Accuracy of the network on the 10000 test images: 9.957983193277311 %
+Accuracy of the network on the 10000 test images: 9.958041958041958 %
+Accuracy of the network on the 10000 test images: 9.958100558659218 %
+Accuracy of the network on the 10000 test images: 9.944211994421199 %
+Accuracy of the network on the 10000 test images: 9.944289693593316 %
+Accuracy of the network on the 10000 test images: 9.930458970792767 %
+Accuracy of the network on the 10000 test images: 9.916666666666666 %
+Accuracy of the network on the 10000 test images: 9.930651872399444 %
+Accuracy of the network on the 10000 test images: 9.97229916897507 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.986187845303867 %
+Accuracy of the network on the 10000 test images: 9.972413793103449 %
+Accuracy of the network on the 10000 test images: 9.97245179063361 %
+Accuracy of the network on the 10000 test images: 9.972489683631363 %
+Accuracy of the network on the 10000 test images: 9.972527472527473 %
+Accuracy of the network on the 10000 test images: 9.972565157750344 %
+Accuracy of the network on the 10000 test images: 9.972602739726028 %
+Accuracy of the network on the 10000 test images: 9.972640218878249 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.986376021798366 %
+Accuracy of the network on the 10000 test images: 9.986394557823129 %
+Accuracy of the network on the 10000 test images: 9.986413043478262 %
+Accuracy of the network on the 10000 test images: 9.986431478968793 %
+Accuracy of the network on the 10000 test images: 10.02710027100271 %
+Accuracy of the network on the 10000 test images: 10.027063599458728 %
+Accuracy of the network on the 10000 test images: 10.027027027027026 %
+Accuracy of the network on the 10000 test images: 10.040485829959515 %
+Accuracy of the network on the 10000 test images: 10.053908355795148 %
+Accuracy of the network on the 10000 test images: 10.053835800807537 %
+Accuracy of the network on the 10000 test images: 10.053763440860216 %
+Accuracy of the network on the 10000 test images: 10.053691275167786 %
+Accuracy of the network on the 10000 test images: 10.040214477211796 %
+Accuracy of the network on the 10000 test images: 10.026773761713521 %
+Accuracy of the network on the 10000 test images: 10.026737967914439 %
+Accuracy of the network on the 10000 test images: 10.026702269692924 %
+Accuracy of the network on the 10000 test images: 10.04 %
+Accuracy of the network on the 10000 test images: 10.039946737683088 %
+Accuracy of the network on the 10000 test images: 10.039893617021276 %
+Accuracy of the network on the 10000 test images: 10.0398406374502 %
+Accuracy of the network on the 10000 test images: 10.026525198938993 %
+Accuracy of the network on the 10000 test images: 10.026490066225165 %
+Accuracy of the network on the 10000 test images: 10.013227513227513 %
+Accuracy of the network on the 10000 test images: 10.013210039630119 %
+Accuracy of the network on the 10000 test images: 10.026385224274406 %
+Accuracy of the network on the 10000 test images: 10.013175230566535 %
+Accuracy of the network on the 10000 test images: 10.026315789473685 %
+Accuracy of the network on the 10000 test images: 10.013140604467806 %
+Accuracy of the network on the 10000 test images: 10.013123359580053 %
+Accuracy of the network on the 10000 test images: 10.01310615989515 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.986945169712794 %
+Accuracy of the network on the 10000 test images: 9.973924380704041 %
+Accuracy of the network on the 10000 test images: 9.9609375 %
+Accuracy of the network on the 10000 test images: 9.960988296488948 %
+Accuracy of the network on the 10000 test images: 9.948051948051948 %
+Accuracy of the network on the 10000 test images: 9.948119325551232 %
+Accuracy of the network on the 10000 test images: 9.961139896373057 %
+Accuracy of the network on the 10000 test images: 9.961190168175937 %
+Accuracy of the network on the 10000 test images: 9.96124031007752 %
+Accuracy of the network on the 10000 test images: 9.974193548387097 %
+Accuracy of the network on the 10000 test images: 9.974226804123711 %
+Accuracy of the network on the 10000 test images: 9.961389961389962 %
+Accuracy of the network on the 10000 test images: 9.961439588688947 %
+Accuracy of the network on the 10000 test images: 9.987163029525032 %
+Accuracy of the network on the 10000 test images: 9.987179487179487 %
+Accuracy of the network on the 10000 test images: 9.98719590268886 %
+Accuracy of the network on the 10000 test images: 9.987212276214834 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.987261146496815 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012674271229404 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012626262626263 %
+Accuracy of the network on the 10000 test images: 10.012610340479194 %
+Accuracy of the network on the 10000 test images: 10.012594458438286 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012547051442912 %
+Accuracy of the network on the 10000 test images: 10.025062656641603 %
+Accuracy of the network on the 10000 test images: 10.02503128911139 %
+Accuracy of the network on the 10000 test images: 10.0125 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012468827930174 %
+Accuracy of the network on the 10000 test images: 10.012453300124532 %
+Accuracy of the network on the 10000 test images: 10.012437810945274 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.987608426270135 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.987639060568604 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.01231527093596 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012285012285012 %
+Accuracy of the network on the 10000 test images: 10.012269938650308 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 10.012224938875306 %
+Accuracy of the network on the 10000 test images: 10.024420024420024 %
+Accuracy of the network on the 10000 test images: 10.036585365853659 %
+Accuracy of the network on the 10000 test images: 10.073081607795372 %
+Accuracy of the network on the 10000 test images: 10.085158150851582 %
+Accuracy of the network on the 10000 test images: 10.08505467800729 %
+Accuracy of the network on the 10000 test images: 10.08495145631068 %
+Accuracy of the network on the 10000 test images: 10.096969696969698 %
+Accuracy of the network on the 10000 test images: 10.121065375302663 %
+Accuracy of the network on the 10000 test images: 10.108827085852479 %
+Accuracy of the network on the 10000 test images: 10.132850241545894 %
+Accuracy of the network on the 10000 test images: 10.132689987937274 %
+Accuracy of the network on the 10000 test images: 10.156626506024097 %
+Accuracy of the network on the 10000 test images: 10.156438026474127 %
+Accuracy of the network on the 10000 test images: 10.15625 %
+Accuracy of the network on the 10000 test images: 10.168067226890756 %
+Accuracy of the network on the 10000 test images: 10.203836930455635 %
+Accuracy of the network on the 10000 test images: 10.203592814371257 %
+Accuracy of the network on the 10000 test images: 10.191387559808613 %
+Accuracy of the network on the 10000 test images: 10.19115890083632 %
+Accuracy of the network on the 10000 test images: 10.178997613365155 %
+Accuracy of the network on the 10000 test images: 10.190703218116806 %
+Accuracy of the network on the 10000 test images: 10.19047619047619 %
+Accuracy of the network on the 10000 test images: 10.190249702734839 %
+Accuracy of the network on the 10000 test images: 10.178147268408551 %
+Accuracy of the network on the 10000 test images: 10.177935943060499 %
+Accuracy of the network on the 10000 test images: 10.189573459715639 %
+Accuracy of the network on the 10000 test images: 10.189349112426035 %
+Accuracy of the network on the 10000 test images: 10.177304964539006 %
+Accuracy of the network on the 10000 test images: 10.177095631641086 %
+Accuracy of the network on the 10000 test images: 10.165094339622641 %
+Accuracy of the network on the 10000 test images: 10.176678445229681 %
+Accuracy of the network on the 10000 test images: 10.188235294117646 %
+Accuracy of the network on the 10000 test images: 10.17626321974148 %
+Accuracy of the network on the 10000 test images: 10.164319248826292 %
+Accuracy of the network on the 10000 test images: 10.18757327080891 %
+Accuracy of the network on the 10000 test images: 10.187353629976581 %
+Accuracy of the network on the 10000 test images: 10.187134502923977 %
+Accuracy of the network on the 10000 test images: 10.186915887850468 %
+Accuracy of the network on the 10000 test images: 10.175029171528587 %
+Accuracy of the network on the 10000 test images: 10.174825174825175 %
+Accuracy of the network on the 10000 test images: 10.174621653084982 %
+Accuracy of the network on the 10000 test images: 10.186046511627907 %
+Accuracy of the network on the 10000 test images: 10.197444831591174 %
+Accuracy of the network on the 10000 test images: 10.208816705336426 %
+Accuracy of the network on the 10000 test images: 10.208574739281575 %
+Accuracy of the network on the 10000 test images: 10.219907407407407 %
+Accuracy of the network on the 10000 test images: 10.219653179190752 %
+Accuracy of the network on the 10000 test images: 10.219399538106236 %
+Accuracy of the network on the 10000 test images: 10.242214532871973 %
+Accuracy of the network on the 10000 test images: 10.241935483870968 %
+Accuracy of the network on the 10000 test images: 10.241657077100115 %
+Accuracy of the network on the 10000 test images: 10.229885057471265 %
+Accuracy of the network on the 10000 test images: 10.229621125143513 %
+Accuracy of the network on the 10000 test images: 10.21788990825688 %
+Accuracy of the network on the 10000 test images: 10.206185567010309 %
+Accuracy of the network on the 10000 test images: 10.22883295194508 %
+Accuracy of the network on the 10000 test images: 10.228571428571428 %
+Accuracy of the network on the 10000 test images: 10.228310502283104 %
+Accuracy of the network on the 10000 test images: 10.216647662485746 %
+Accuracy of the network on the 10000 test images: 10.227790432801822 %
+Accuracy of the network on the 10000 test images: 10.227531285551763 %
+Accuracy of the network on the 10000 test images: 10.215909090909092 %
+Accuracy of the network on the 10000 test images: 10.227014755959138 %
+Accuracy of the network on the 10000 test images: 10.238095238095237 %
+Accuracy of the network on the 10000 test images: 10.237825594563986 %
+Accuracy of the network on the 10000 test images: 10.226244343891402 %
+Accuracy of the network on the 10000 test images: 10.225988700564972 %
+Accuracy of the network on the 10000 test images: 10.214446952595937 %
+Accuracy of the network on the 10000 test images: 10.202931228861331 %
+Accuracy of the network on the 10000 test images: 10.191441441441441 %
+Accuracy of the network on the 10000 test images: 10.202474690663667 %
+Accuracy of the network on the 10000 test images: 10.191011235955056 %
+Accuracy of the network on the 10000 test images: 10.179573512906845 %
+Accuracy of the network on the 10000 test images: 10.168161434977579 %
+Accuracy of the network on the 10000 test images: 10.156774916013438 %
+Accuracy of the network on the 10000 test images: 10.156599552572708 %
+Accuracy of the network on the 10000 test images: 10.145251396648044 %
+Accuracy of the network on the 10000 test images: 10.145089285714286 %
+Accuracy of the network on the 10000 test images: 10.144927536231885 %
+Accuracy of the network on the 10000 test images: 10.133630289532293 %
+Accuracy of the network on the 10000 test images: 10.133481646273637 %
+Accuracy of the network on the 10000 test images: 10.144444444444444 %
+Accuracy of the network on the 10000 test images: 10.144284128745838 %
+Accuracy of the network on the 10000 test images: 10.133037694013304 %
+Accuracy of the network on the 10000 test images: 10.132890365448505 %
+Accuracy of the network on the 10000 test images: 10.121681415929203 %
+Accuracy of the network on the 10000 test images: 10.121546961325967 %
+Accuracy of the network on the 10000 test images: 10.110375275938189 %
+Accuracy of the network on the 10000 test images: 10.09922822491731 %
+Accuracy of the network on the 10000 test images: 10.088105726872246 %
+Accuracy of the network on the 10000 test images: 10.11001100110011 %
+Accuracy of the network on the 10000 test images: 10.10989010989011 %
+Accuracy of the network on the 10000 test images: 10.109769484083424 %
+Accuracy of the network on the 10000 test images: 10.098684210526315 %
+Accuracy of the network on the 10000 test images: 10.109529025191677 %
+Accuracy of the network on the 10000 test images: 10.109409190371991 %
+Accuracy of the network on the 10000 test images: 10.131147540983607 %
+Accuracy of the network on the 10000 test images: 10.131004366812228 %
+Accuracy of the network on the 10000 test images: 10.119956379498364 %
+Accuracy of the network on the 10000 test images: 10.10893246187364 %
+Accuracy of the network on the 10000 test images: 10.097932535364526 %
+Accuracy of the network on the 10000 test images: 10.119565217391305 %
+Accuracy of the network on the 10000 test images: 10.11943539630836 %
+Accuracy of the network on the 10000 test images: 10.119305856832971 %
+Accuracy of the network on the 10000 test images: 10.130010834236186 %
+Accuracy of the network on the 10000 test images: 10.119047619047619 %
+Accuracy of the network on the 10000 test images: 10.12972972972973 %
+Accuracy of the network on the 10000 test images: 10.140388768898488 %
+Accuracy of the network on the 10000 test images: 10.129449838187702 %
+Accuracy of the network on the 10000 test images: 10.129310344827585 %
+Accuracy of the network on the 10000 test images: 10.129171151776104 %
+Accuracy of the network on the 10000 test images: 10.13978494623656 %
+Accuracy of the network on the 10000 test images: 10.150375939849624 %
+Accuracy of the network on the 10000 test images: 10.17167381974249 %
+Accuracy of the network on the 10000 test images: 10.160771704180064 %
+Accuracy of the network on the 10000 test images: 10.171306209850107 %
+Accuracy of the network on the 10000 test images: 10.16042780748663 %
+Accuracy of the network on the 10000 test images: 10.149572649572649 %
+Accuracy of the network on the 10000 test images: 10.138740661686233 %
+Accuracy of the network on the 10000 test images: 10.138592750533048 %
+Accuracy of the network on the 10000 test images: 10.138445154419596 %
+Accuracy of the network on the 10000 test images: 10.127659574468085 %
+Accuracy of the network on the 10000 test images: 10.127523910733263 %
+Accuracy of the network on the 10000 test images: 10.116772823779193 %
+Accuracy of the network on the 10000 test images: 10.116648992576883 %
+Accuracy of the network on the 10000 test images: 10.13771186440678 %
+Accuracy of the network on the 10000 test images: 10.137566137566138 %
+Accuracy of the network on the 10000 test images: 10.14799154334038 %
+Accuracy of the network on the 10000 test images: 10.147835269271383 %
+Accuracy of the network on the 10000 test images: 10.137130801687764 %
+Accuracy of the network on the 10000 test images: 10.126448893572181 %
+Accuracy of the network on the 10000 test images: 10.136842105263158 %
+Accuracy of the network on the 10000 test images: 10.13669821240799 %
+Accuracy of the network on the 10000 test images: 10.126050420168067 %
+Accuracy of the network on the 10000 test images: 10.12591815320042 %
+Accuracy of the network on the 10000 test images: 10.115303983228511 %
+Accuracy of the network on the 10000 test images: 10.104712041884817 %
+Accuracy of the network on the 10000 test images: 10.094142259414227 %
+Accuracy of the network on the 10000 test images: 10.094043887147336 %
+Accuracy of the network on the 10000 test images: 10.10438413361169 %
+Accuracy of the network on the 10000 test images: 10.104275286757039 %
+Accuracy of the network on the 10000 test images: 10.09375 %
+Accuracy of the network on the 10000 test images: 10.08324661810614 %
+Accuracy of the network on the 10000 test images: 10.072765072765073 %
+Accuracy of the network on the 10000 test images: 10.062305295950155 %
+Accuracy of the network on the 10000 test images: 10.051867219917012 %
+Accuracy of the network on the 10000 test images: 10.062176165803109 %
+Accuracy of the network on the 10000 test images: 10.05175983436853 %
+Accuracy of the network on the 10000 test images: 10.062047569803516 %
+Accuracy of the network on the 10000 test images: 10.072314049586776 %
+Accuracy of the network on the 10000 test images: 10.061919504643964 %
+Accuracy of the network on the 10000 test images: 10.051546391752577 %
+Accuracy of the network on the 10000 test images: 10.041194644696189 %
+Accuracy of the network on the 10000 test images: 10.030864197530864 %
+Accuracy of the network on the 10000 test images: 10.030832476875643 %
+Accuracy of the network on the 10000 test images: 10.020533880903491 %
+Accuracy of the network on the 10000 test images: 10.04102564102564 %
+Accuracy of the network on the 10000 test images: 10.051229508196721 %
+Accuracy of the network on the 10000 test images: 10.040941658137154 %
+Accuracy of the network on the 10000 test images: 10.040899795501023 %
+Accuracy of the network on the 10000 test images: 10.040858018386109 %
+Accuracy of the network on the 10000 test images: 10.03061224489796 %
+Accuracy of the network on the 10000 test images: 10.030581039755353 %
+Accuracy of the network on the 10000 test images: 10.040733197556008 %
+Accuracy of the network on the 10000 test images: 10.030518819938962 %
+Accuracy of the network on the 10000 test images: 10.03048780487805 %
+Accuracy of the network on the 10000 test images: 10.02030456852792 %
+Accuracy of the network on the 10000 test images: 10.010141987829615 %
+Accuracy of the network on the 10000 test images: 10.010131712259373 %
+Accuracy of the network on the 10000 test images: 10.0 %
+Accuracy of the network on the 10000 test images: 9.989888776541962 %
+Accuracy of the network on the 10000 test images: 9.97979797979798 %
+Accuracy of the network on the 10000 test images: 9.979818365287588 %
+Accuracy of the network on the 10000 test images: 9.96975806451613 %
+Accuracy of the network on the 10000 test images: 9.969788519637461 %
+Accuracy of the network on the 10000 test images: 9.959758551307846 %
+Accuracy of the network on the 10000 test images: 9.969849246231156 %
+Accuracy of the network on the 10000 test images: 9.96987951807229 %
+Accuracy of the network on the 10000 test images: 9.989969909729188 %
+Accuracy of the network on the 10000 test images: 9.98997995991984 %
+Accuracy of the network on the 10000 test images: 9.97997997997998 %
+Accuracy of the network on the 10000 test images: 10.0 %
+after run_master
+
+wandb: Waiting for W&B process to finish, PID 1683748
+wandb: Program ended successfully.
+wandb:                                                                                
+wandb: Find user logs for this run at: /home/junchen/Resource-Efficient-FL/FL-DIST-clean/tcp_splitted_model/send_split_params/wandb/run-20220606_202426-28hnzpkn/logs/debug.log
+wandb: Find internal logs for this run at: /home/junchen/Resource-Efficient-FL/FL-DIST-clean/tcp_splitted_model/send_split_params/wandb/run-20220606_202426-28hnzpkn/logs/debug-internal.log
+wandb: Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: 
+wandb: Synced faithful-sunset-42: https://wandb.ai/zjc664656505/fl-dist/runs/28hnzpkn
+

@@ -1,0 +1,10 @@
+Tasks: 506 total,   2 running, 502 sleeping,   0 stopped,   2 zombie
+  Mem:      7.6G total,      5.6G used,      1.9G free,       87M buffers
+ Swap:      5.6G total,      515M used,      5.1G free,      1.9G cached
+800%cpu   8%user   3%nice  98%sys 691%idle   0%iow   0%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS                                                                                                                                                                                                              
+15368 u0_a150      10 -10  22G  62M  62M S  100   0.7 379:42.67 python3 split_worker1.py
+32341 u0_a121      20   0 5.8G 177M 163M S  5.6   2.2   0:03.46 com.google.android.gms.unstable
+15761 shell        20   0  35M 4.3M 3.0M R  1.6   0.0  21:43.84 top
+32498 root         20   0    0    0    0 I  0.6   0.0   0:01.57 [kworker/2:2]
+
