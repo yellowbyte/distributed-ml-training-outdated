@@ -630,7 +630,8 @@ if __name__ == "__main__":
     s.close()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(("192.168.0.153", int(os.environ['WORKER1_PORT'])))
+    #s.connect(("192.168.0.153", int(os.environ['WORKER1_PORT'])))
+    s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER1_PORT'])))
     msg = pickle.dumps("6:10")
     msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
     print(msg)

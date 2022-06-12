@@ -501,7 +501,7 @@ if __name__=="__main__":
     os.environ['MASTER_PORT'] = '29411'
     os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
     os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
-    os.environ['WORKER1_PORT'] = '29402'
+    os.environ['WORKER1_PORT'] = '29401'
 
     # Get Splitted Model
     HEADERSIZE = 10
@@ -546,11 +546,11 @@ if __name__=="__main__":
     conn.close()
 
     devices_init1, devices_body1, inplane_num1 = extract_layers(init_body, forward_body, dependencies, start_index, end_index)
-    create_model(devices_init1, devices_body1, inplane_num1, 0)
+    create_model(devices_init1, devices_body1, inplane_num1, 1)
     #breakpoint()
 
     # Perform Distributed Training
-    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
+    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=100000)
     rpc.init_rpc("worker1", rank=1, world_size=3, rpc_backend_options=options)
     # rref1 = rpc.rpc_sync("worker1", _run_trainer())
     rpc.shutdown()
