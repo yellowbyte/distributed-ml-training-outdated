@@ -204,14 +204,14 @@ if __name__=="__main__":
 
 
     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-    # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
-    # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
+    os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
+    os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['MASTER_ADDR'] = '192.168.0.195'
     # os.environ['MASTER_PORT'] = '29412'
-    os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
-    os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
-    # os.environ['MASTER_ADDR'] = '192.168.0.195'
-    os.environ['MASTER_ADDR'] = '128.195.41.40'
+    #os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
+    #os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
+    os.environ['MASTER_ADDR'] = '192.168.0.195'
+    # os.environ['MASTER_ADDR'] = '128.195.41.40'
     os.environ['MASTER_PORT'] = '29412'
     print(os.environ.get('GLOO_SOCKET_IFNAME'))
     world_size = 3
