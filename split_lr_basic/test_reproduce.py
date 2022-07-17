@@ -133,84 +133,84 @@ def run_master(split_size):
             dist_autograd.backward(context_id, [loss_fn(outputs, labels)])
             opt.step(context_id)
 
-# if __name__ == "__main__":
-#     # model1 = ToyModel1()
-#     # model2 = ToyModel2()
-#     # loss_fn = nn.MSELoss()
-#     # optimizer1 = optim.SGD(model1.parameters(), lr=0.001)
-#     # optimizer2 = optim.SGD(model2.parameters(), lr=0.001)
-#     #
-#     # optimizer1.zero_grad()
-#     # optimizer2.zero_grad()
-#     # # outputs = model2(torch.randn(20, 10))
-#     #
-#     # loss_fn(outputs, labels).backward()
-#     # optimizer.step()
-#     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-#     # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
-#     # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
-#     # os.environ['MASTER_ADDR'] = '192.168.0.195'
-#     # os.environ['MASTER_PORT'] = '29412'
-#     os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
-#     os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
-#     # os.environ['MASTER_ADDR'] = '192.168.0.195'
-#     os.environ['MASTER_ADDR'] = '128.195.41.40'
-#     os.environ['MASTER_PORT'] = '29412'
-#     print(os.environ.get('GLOO_SOCKET_IFNAME'))
-#     rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
-#     #rpc.init_rpc("worker1", rank=1, world_size=2, rpc_backend_options=options)
-#     #rpc.init_rpc("worker2", rank=2, world_size=3, rpc_backend_options=options)
-#     print("check whether worker is init")
-#
-#
-#     print("splitting")
-#     run_master(1)
-#     print("after run_master")
-
-
-def run_worker(rank, world_size, num_split):
-    os.environ['MASTER_ADDR'] = '192.168.0.195'
-    os.environ['MASTER_PORT'] = '29411'
-    # Higher timeout is added to accommodate for kernel compilation time in case of ROCm.
+if __name__ == "__main__":
+    # model1 = ToyModel1()
+    # model2 = ToyModel2()
+    # loss_fn = nn.MSELoss()
+    # optimizer1 = optim.SGD(model1.parameters(), lr=0.001)
+    # optimizer2 = optim.SGD(model2.parameters(), lr=0.001)
+    #
+    # optimizer1.zero_grad()
+    # optimizer2.zero_grad()
+    # # outputs = model2(torch.randn(20, 10))
+    #
+    # loss_fn(outputs, labels).backward()
+    # optimizer.step()
     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-
-    if rank == 0:
-        rpc.init_rpc(
-            "master",
-            rank=rank,
-            world_size=world_size,
-            rpc_backend_options=options
-        )
-        run_master(num_split)
-    else:
-        rpc.init_rpc(
-            f"worker{rank}",
-            rank=rank,
-            world_size=world_size,
-            rpc_backend_options=options
-        )
-        pass
-
-    # block until all rpcs finish
-    rpc.shutdown()
-
-
-if __name__=="__main__":
-
-    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-    os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
-    os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
+    # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
+    # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['MASTER_ADDR'] = '192.168.0.195'
     # os.environ['MASTER_PORT'] = '29412'
-    #os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
-    #os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
-    os.environ['MASTER_ADDR'] = '192.168.0.195'
-    # os.environ['MASTER_ADDR'] = '128.195.41.40'
+    os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
+    os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
+    # os.environ['MASTER_ADDR'] = '192.168.0.195'
+    os.environ['MASTER_ADDR'] = '128.195.41.40'
     os.environ['MASTER_PORT'] = '29412'
     print(os.environ.get('GLOO_SOCKET_IFNAME'))
-    world_size = 3
-    for num_split in [1, 2, 4, 8]:
-        tik = time.time()
-        mp.spawn(run_worker, args=(world_size, num_split), nprocs=world_size, join=True)
-        tok = time.time()
-        print(f"number of splits = {num_split}, execution time = {tok - tik}")
+    rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
+    #rpc.init_rpc("worker1", rank=1, world_size=2, rpc_backend_options=options)
+    #rpc.init_rpc("worker2", rank=2, world_size=3, rpc_backend_options=options)
+    print("check whether worker is init")
+
+
+    print("splitting")
+    run_master(1)
+    print("after run_master")
+
+
+#def run_worker(rank, world_size, num_split):
+#    os.environ['MASTER_ADDR'] = '192.168.0.195'
+#    os.environ['MASTER_PORT'] = '29411'
+#    # Higher timeout is added to accommodate for kernel compilation time in case of ROCm.
+#    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
+#
+#    if rank == 0:
+#        rpc.init_rpc(
+#            "master",
+#            rank=rank,
+#            world_size=world_size,
+#            rpc_backend_options=options
+#        )
+#        run_master(num_split)
+#    else:
+#        rpc.init_rpc(
+#            f"worker{rank}",
+#            rank=rank,
+#            world_size=world_size,
+#            rpc_backend_options=options
+#        )
+#        pass
+#
+#    # block until all rpcs finish
+#    rpc.shutdown()
+#
+#
+#if __name__=="__main__":
+#
+#    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
+#    os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
+#    os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
+#    # os.environ['MASTER_ADDR'] = '192.168.0.195'
+#    # os.environ['MASTER_PORT'] = '29412'
+#    #os.environ['GLOO_SOCKET_IFNAME'] = 'enp71s0'
+#    #os.environ['TP_SOCKET_IFNAME'] = 'enp71s0'
+#    os.environ['MASTER_ADDR'] = '192.168.0.195'
+#    # os.environ['MASTER_ADDR'] = '128.195.41.40'
+##    os.environ['MASTER_PORT'] = '29412'
+#    print(os.environ.get('GLOO_SOCKET_IFNAME'))
+#    world_size = 3
+#    for num_split in [1, 2, 4, 8]:
+#        tik = time.time()
+#        mp.spawn(run_worker, args=(world_size, num_split), nprocs=world_size, join=True)
+#        tok = time.time()
+####        print(f"number of splits = {num_split}, execution time = {tok - tik}")
