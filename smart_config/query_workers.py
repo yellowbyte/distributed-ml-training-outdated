@@ -1,3 +1,8 @@
+'''Output memory (top) and network (ping) status of devices to workers.info
+
+Usage: ./queryworkers.py
+'''
+
 from collections import namedtuple
 from pprint import pprint
 
@@ -97,7 +102,7 @@ def main():
     latency = parse_net(ping)
     result += "workstation,"+str(mem_ava)+","+str(latency)+"\n"
 
-    # worker
+    # workers
     for dev in DEVICES:
         top = call_bash(get_adb_top(dev.id))
         mem_ava = parse_mem(top, "android")
@@ -109,13 +114,5 @@ def main():
         f.write(result)
 
 
-def test():
-    ping = call_bash(PING_CMD+DEVICES[0].ip)    
-    pingw = call_bash(PING_CMD+WIP)    
-    ms = parse_net(ping)
-    msw = parse_net(pingw)
-    breakpoint()
-
 if __name__ == "__main__":
     main()
-    #test()
