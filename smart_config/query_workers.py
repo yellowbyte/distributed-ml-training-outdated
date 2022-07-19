@@ -100,15 +100,15 @@ def main():
     mem_ava = parse_mem(top, "workstation")
     ping = call_bash(PING_CMD+WIP)    
     latency = parse_net(ping)
-    result += "workstation,"+str(mem_ava)+","+str(latency)+"\n"
+    result += f"workstation,{str(mem_ava)},{str(latency)}\n"
 
     # workers
-    for dev in DEVICES:
+    for i,dev in enumerate(DEVICES):
         top = call_bash(get_adb_top(dev.id))
         mem_ava = parse_mem(top, "android")
         ping = call_bash(PING_CMD+dev.ip)    
         latency = parse_net(ping)
-        result += "android,"+str(mem_ava)+","+str(latency)+"\n"
+        result += f"android{i},{str(mem_ava)},{str(latency)}\n"
 
     with open("workers.info", "w") as f:
         f.write(result)
