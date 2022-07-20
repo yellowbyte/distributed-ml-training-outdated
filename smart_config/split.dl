@@ -1,12 +1,12 @@
 .decl Device(x:symbol)
-.decl Memory(x:symbol, y:number)
-.decl Bandwidth(x:symbol, y:number)
+.decl Memory(x:symbol, y:float)
+.decl Bandwidth(x:symbol, y:float)
 .input Device(IO=file, filename="workers.device", delimiter=",")
 .input Memory(IO=file, filename="workers.memory", delimiter=",")
 .input Bandwidth(IO=file, filename="workers.bandwidth", delimiter=",")
 
-.decl Layer(a:number, b:number, c:number, d:number)
-.decl Layers(a:number, b:number, c:number, d:number, e:number)
+.decl Layer(a:number, b:float, c:float, d:float)
+.decl Layers(a:number, b:number, c:float, d:float, e:float)
 .decl SplitLayer(x:number, w:number, z:symbol)
 .decl SplitDevices(a:symbol, y:number, z:number, b:symbol, w:number, x:number, c:symbol, t:number, v:number)
 .decl CheckUnique(a:number, b:number, c:number, d:number, e:number, f:number)
@@ -15,31 +15,32 @@
 //Device("d2").
 //Device("d3").
 
-//Memory("d1", 10).
-//Memory("d2", 30).
-//Memory("d3", 36).
+//Memory("d1", 10.0).
+//Memory("d2", 30.0).
+//Memory("d3", 36.0).
 
-//Bandwidth("d1", 15).
-//Bandwidth("d2", 31).
-//Bandwidth("d3", 30).
+//Bandwidth("d1", 15.0).
+//Bandwidth("d2", 31.0).
+//Bandwidth("d3", 30.0).
 
 // layer number, input size, output size, number of nodes
-Layer(1, 10, 5, 6).
-Layer(2, 3, 2, 3).
-Layer(3, 7, 7, 3).
-Layer(4, 2, 3, 2).
+Layer(1, 10.0, 5.0, 0.1).
+Layer(2, 3.0, 2.0, 0.12).
+Layer(3, 7.0, 7.0, 1.0).
+Layer(4, 2.0, 3.0, 0.11).
 
 // layers combination
-Layers(1,2,13,7,9).
-Layers(1,3,20,14,12).
-Layers(1,4,22,17,14).
-Layers(2,3,10,9,6).
-Layers(2,4,12,12,8).
-Layers(3,4,9,10,5).
-Layers(1,0,10,5,6).
-Layers(2,0,3,2,3).
-Layers(3,0,7,7,3).
-Layers(4,0,2,3,2).
+Layers(1,2,13.0,7.0,9.0).
+Layers(1,3,20.0,14.0,12.0).
+Layers(1,4,22.0,17.0,14.0).
+Layers(2,3,10.0,9.0,6.0).
+Layers(2,4,12.0,12.0,8.0).
+Layers(3,4,9.0,10.0,5.0).
+// a device can be assigned to one layer
+Layers(1,0,10.0,5.0,6.0).
+Layers(2,0,3.0,2.0,3.0).
+Layers(3,0,7.0,7.0,3.0).
+Layers(4,0,2.0,3.0,2.0).
 
 SplitLayer(0,0,k) :- Device(k).
 SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,b,c), a<z, b<z, c<y.
