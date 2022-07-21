@@ -1,16 +1,9 @@
+"""create Souffle input files (workers.device, workers.bandwidth, workers.memory) from workers.info
+
+./create_souffle_inputs.py
+"""
+
 import os
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def main():
@@ -29,15 +22,6 @@ def main():
             d.write(device+os.linesep)
             b.write(device+","+latency+os.linesep)            
             m.write(device+","+memory+os.linesep)
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__": 
