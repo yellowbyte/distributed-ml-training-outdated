@@ -18,7 +18,7 @@ def main():
     # make smaller number larger
     for wbandwidth in workers_bandwidth:
         device,bandwidth = wbandwidth.split(",")
-        new_bandwidth = 100/float(bandwidth)
+        new_bandwidth = 1/float(bandwidth)
         new_worker_bandwidth = f"{device},{new_bandwidth}"             
         new_workers_bandwidth.append(new_worker_bandwidth)
     
