@@ -1,9 +1,9 @@
 .decl Device(x:symbol)
 .decl Memory(x:symbol, y:float)
 .decl Bandwidth(x:symbol, y:float)
-.input Device(IO=file, filename="workers.device", delimiter=",")
-.input Memory(IO=file, filename="workers.memory", delimiter=",")
-.input Bandwidth(IO=file, filename="workers.bandwidth", delimiter=",")
+.input Device(IO=file, filename="infiles/workers.device", delimiter=",")
+.input Memory(IO=file, filename="infiles/workers.memory", delimiter=",")
+.input Bandwidth(IO=file, filename="infiles/workers.bandwidth", delimiter=",")
 
 .decl Layer(a:number, b:float, c:float, d:float)
 .decl Layers(a:number, b:number, c:float, d:float, e:float)
@@ -49,7 +49,7 @@ SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,b,c), 
 // this can be done by a separate program 
 CheckUnique(a,b,c,d,e,f) :-
   // some devices can be assigned no layers 
-	(a=1,b=2,c=3,d=4,e=0,f=0;a=1,b=3,c=4,d=0,e=0,f=0).  
+	(a=1,b=2,c=3,d=4,e=0,f=0;a=1,b=3,c=4,d=0,e=0,f=0;a=1,b=0,c=2,d=4,e=0,f=0).  
 
 SplitDevices(a,y,z,b,w,x,c,t,v) :- 
 	SplitLayer(y,z,a), 
