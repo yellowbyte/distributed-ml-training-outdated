@@ -34,6 +34,7 @@ class ToyModelBase(nn.Module):
         return [RRef(p) for p in self.parameters()]
 
 
+
 class ToyModel1(ToyModelBase):
     def __init__(self):
         super(ToyModel1, self).__init__()
@@ -118,21 +119,26 @@ def run_master(split_size):
     )
 
 
-    for i in range(num_batches):
-        print(f"Processing batch {i}")
-        # generate random inputs and labels
-        inputs = torch.randn(20, 10)
-        labels = torch.randn(20, 5)
+    # profiler context
+    with torch.autograd.profiler.profile() as prof:
+        for i in range(num_batches):
+            print(f"Processing batch {i}")
+            # generate random inputs and labels
+            inputs = torch.randn(20, 10)
+            labels = torch.randn(20, 5)
 
-        # The distributed autograd context is the dedicated scope for the
-        # distributed backward pass to store gradients, which can later be
-        # retrieved using the context_id by the distributed optimizer.
-        with dist_autograd.context() as context_id:
-            # start forward
-            print("checkpoint forward")
-            outputs = model(inputs)
-            dist_autograd.backward(context_id, [loss_fn(outputs, labels)])
-            opt.step(context_id)
+            # The distributed autograd context is the dedicated scope for the
+            # distributed backward pass to store gradients, which can later be
+            # retrieved using the context_id by the distributed optimizer.
+            with dist_autograd.context() as context_id:
+                # start forward
+                print("checkpoint forward")
+                outputs = model(inputs)
+                dist_autograd.backward(context_id, [loss_fn(outputs, labels)])
+                opt.step(context_id)
+
+    print(prof.key_averages().table(sort_by="self_cpu_time_total"))
+
 
 if __name__ == "__main__":
     # model1 = ToyModel1()
@@ -147,7 +153,7 @@ if __name__ == "__main__":
     #
     # loss_fn(outputs, labels).backward()
     # optimizer.step()
-
+    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
     # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['MASTER_ADDR'] = '192.168.0.195'
@@ -158,44 +164,12 @@ if __name__ == "__main__":
     os.environ['MASTER_ADDR'] = '128.195.41.40'
     os.environ['MASTER_PORT'] = '29412'
     print(os.environ.get('GLOO_SOCKET_IFNAME'))
-    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-    rpc.init_rpc("worker1", rank=1, world_size=3, rpc_backend_options=options)
+    rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
+    #rpc.init_rpc("worker1", rank=1, world_size=2, rpc_backend_options=options)
+    #rpc.init_rpc("worker2", rank=2, world_size=3, rpc_backend_options=options)
     print("check whether worker is init")
 
-    rpc.shutdown()
 
-
-# def run_worker(rank, world_size, num_split):
-#     os.environ['MASTER_ADDR'] = '192.168.0.195'
-#     os.environ['MASTER_PORT'] = '29411'
-#     # Higher timeout is added to accommodate for kernel compilation time in case of ROCm.
-#     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=300)
-#
-#     if rank == 0:
-#         rpc.init_rpc(
-#             "master",
-#             rank=rank,
-#             world_size=world_size,
-#             rpc_backend_options=options
-#         )
-#         run_master(num_split)
-#     else:
-#         rpc.init_rpc(
-#             f"worker{rank}",
-#             rank=rank,
-#             world_size=world_size,
-#             rpc_backend_options=options
-#         )
-#         pass
-#
-#     # block until all rpcs finish
-#     rpc.shutdown()
-#
-#
-# if __name__=="__main__":
-#     world_size = 3
-#     for num_split in [1, 2, 4, 8]:
-#         tik = time.time()
-#         mp.spawn(run_worker, args=(world_size, num_split), nprocs=world_size, join=True)
-#         tok = time.time()
-#         print(f"number of splits = {num_split}, execution time = {tok - tik}")
+    print("splitting")
+    run_master(1)
+    print("after run_master")
