@@ -1,6 +1,12 @@
+"""output Souffle rules that encode the following constraints: MEMORY X BANDWIDTH -> LAYERS
+ 
+./constraint_map_gen.py
+"""
 from itertools import groupby, islice, tee
 from operator import itemgetter
 from typing import Tuple, List, Set
+
+import system
 
 
 def create_all_splits(layers_info: Tuple[int,int]) -> Set[List[int]]:
@@ -36,3 +42,22 @@ def consecutive_subseq(iterable, length):
         for n, it in enumerate(k_wise):
             next(islice(it, n, n), None) # consume n items from it
         yield from zip(*k_wise)
+
+
+def forced_execution(model: List[str]):
+    """
+    deterministically explore different portions of the model to identify 
+    the model portions current MEMORY X BANDWIDTH can handle
+    """
+    pass
+
+
+def main():
+    model_name = system.argv[1]
+    # TODO: get string rep of model in list
+    model = list() 
+    forced_execution(model)    
+
+
+if __name__ == "__main__": 
+    main() 
