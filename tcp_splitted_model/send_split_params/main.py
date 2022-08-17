@@ -464,7 +464,6 @@ def create_model(devices_init, devices_body, inplane_num, i):
 
 
 devices_num = 2
-classes = list()
 init_body = [
     "self.cov2d = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)",
     "self.layer_norm = self._norm_layer(self.inplanes)",
@@ -572,9 +571,6 @@ if __name__ == "__main__":
     # 192.168.0.153
     # wlan0
 
-
-
-
     # # Perform Split Training
     # print("check whether worker is init")
     # # run_master(2)
@@ -588,18 +584,6 @@ if __name__ == "__main__":
     # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
     # rpc.shutdown()
     # # Sending Pickled Class
-
-
-
-
-
-
-
-
-
-
-
-
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

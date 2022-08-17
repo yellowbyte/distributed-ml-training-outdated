@@ -1,4 +1,5 @@
 wandb
 *.swp
+__pycache__
 data/
 HashingDeepLearning

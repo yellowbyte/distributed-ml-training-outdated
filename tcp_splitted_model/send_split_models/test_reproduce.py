@@ -167,22 +167,6 @@ def run_master(split_size):
         lr=0.001,
     )
     print("finish initializing")
-#    for i in range(num_batches):
-#        print(f"Processing batch {i}")
-#        # generate random inputs and labels
-#        inputs = torch.randn(20, 10)
-#        labels = torch.randn(20, 5)
-#
-#        # The distributed autograd context is the dedicated scope for the
-#        # distributed backward pass to store gradients, which can later be
-#        # retrieved using the context_id by the distributed optimizer.
-#        with dist_autograd.context() as context_id:
-#            # start forward
-#            print("checkpoint forward")
-#            outputs = model(inputs)
-#            dist_autograd.backward(context_id, [loss_fn(outputs, labels)])
-#            opt.step(context_id)
-
 
 
     total_step = len(train_loader)
