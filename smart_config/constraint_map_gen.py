@@ -91,6 +91,12 @@ def forced_execution(s: Set[int]) -> bool:
     model = MODEL()
     breakpoint()
     # execute
+    try:
+        with time_limit(60):
+            x = model.forward(rand_param_gen(SHAPES[start_index]))
+    except TimeoutException as e:
+        return False
+    breakpoint()
     return True
 
 
