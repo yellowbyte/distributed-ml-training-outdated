@@ -65,7 +65,10 @@ def rand_param_gen(shape):
     generate random valid input for current model portion
     using `shape`, which is extracted from `shapes`
     """
-    pass 
+    if shape[2] == "rand":
+        return torch.rand(shape[0],shape[1])
+    elif shape[2] == "randint":
+        return torch.randint(100,(shape[0],shape[1]))
 
 
 def getlownhigh(s: Set[int]) -> Tuple[int,Any]:
@@ -89,11 +92,11 @@ def forced_execution(s: Set[int]) -> bool:
     init_portion, body_portion = extract_layers(start_index,end_index)
     create_model(init_portion, body_portion)
     model = MODEL()
-    breakpoint()
     # execute
+    inputs = rand_param_gen(SHAPES[start_index])
     try:
         with time_limit(60):
-            x = model.forward(rand_param_gen(SHAPES[start_index]))
+            x = model.forward(inputs)
     except TimeoutException as e:
         return False
     breakpoint()

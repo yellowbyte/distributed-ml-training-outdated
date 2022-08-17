@@ -34,6 +34,6 @@ FORWARD_HEADING = ["def forward(self, x1):"] + ["x1 = x1.to_here()"]
 
 SHAPES = {
     # forward_body index: (input size,distribution)
-    0: (784,torch.randn),
-    1: (500,torch.randn)
+    0: (100,784,"rand"),   # [0,1] for images
+    1: (100,500,"randint")  # positive numbers for relu
 }
