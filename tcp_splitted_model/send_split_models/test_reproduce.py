@@ -123,8 +123,6 @@ class DistToyModel(nn.Module):
         return remote_params
 
 
-
-
 num_batches = 3
 num_epochs = 1
 

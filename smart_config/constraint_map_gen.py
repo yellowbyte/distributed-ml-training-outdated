@@ -19,7 +19,7 @@ import signal
 ### CORE ###
 
 
-def create_all_splits(layers_info: Tuple[int,int]) -> Set[List[int]]:
+def create_all_splits(layers_info: Tuple[int,int]) -> Set[Set[int]]:
     """
     Given layers encoded in `layers_info`, create
     all possible combinations
@@ -65,9 +65,12 @@ def rand_param_gen(shape):
     generate random valid input for current model portion
     using `shape`, which is extracted from `shapes`
     """
-    if shape[2] == "rand":
+    _type = shape[2]
+    if _type == "rand":
+        # tensor of size shape 
         return torch.rand(shape[0],shape[1])
-    elif shape[2] == "randint":
+    elif _type == "randint":
+        # tensor of size shape with high of 100
         return torch.randint(100,(shape[0],shape[1]))
 
 
@@ -99,7 +102,6 @@ def forced_execution(s: Set[int]) -> bool:
             x = model.forward(inputs)
     except TimeoutException as e:
         return False
-    breakpoint()
     return True
 
 
@@ -117,14 +119,16 @@ def forced_execution_driver() -> List[str]:
                 _key=lambda x: len(x),
                 _reverse=True)
     for s in splits: 
-        print("current split:" + str(s))
-        if any([s.issubset(acs) for acs in accepted_splits]):
+        #print("current split:" + str(s))
+        cur_split = set(s)
+        if any([cur_split.issubset(acs) for acs in accepted_splits]):
             # current split s already handled by a successful bigger split
+            accepted_splits.append(cur_split)
             continue
         # perform forced execution
-        success = forced_execution(s)
+        success = forced_execution(cur_split)
         if success: 
-            accepted_splits.add(s)
+            accepted_splits.append(cur_split)
     # create constraint rules from accepted_splits
     out = list()
     for acs in accepted_splits:
@@ -163,9 +167,9 @@ def extract_layers(start_index:int, end_index:int) -> Tuple[str,str]:
     specified by start_index and end_index
     """
     # extract init_body layers
-    devices_init = INIT_BODY[start_index:end_index+1]
+    devices_init = INIT_BODY[start_index:end_index]
     # extract forward_body layers
-    devices_body = FORWARD_BODY[start_index:end_index+1]
+    devices_body = FORWARD_BODY[start_index:end_index]
 
     return ("\n    ".join(devices_init), "\n    ".join(devices_body))
 
@@ -209,6 +213,7 @@ def main():
         pass
 
     constraints: List[str] = forced_execution_driver()    
+    breakpoint()
     # TODO: send `constraints` back to workstation over TCP 
 
 
