@@ -13,6 +13,7 @@ import torch.nn as nn
 from torch.distributed.rpc import RRef
 
 import sys
+import time
 import signal
 
 
@@ -98,8 +99,8 @@ def forced_execution(s: Set[int]) -> bool:
     # execute
     inputs = rand_param_gen(SHAPES[start_index])
     try:
-        with time_limit(60):
-            x = model.forward(inputs)
+        with time_limit(1):
+            _ = model.forward(inputs)
     except TimeoutException as e:
         return False
     return True
@@ -129,6 +130,7 @@ def forced_execution_driver() -> List[str]:
         success = forced_execution(cur_split)
         if success: 
             accepted_splits.append(cur_split)
+
     # create constraint rules from accepted_splits
     out = list()
     for acs in accepted_splits:
@@ -176,8 +178,8 @@ def extract_layers(start_index:int, end_index:int) -> Tuple[str,str]:
 
 def create_model(devices_init: str, devices_body: str) -> None:
     # create model that initialize/execute specific layers
-    init_str = INIT_HEADING + [devices_init]
-    forward_str = FORWARD_HEADING + [devices_body]
+    init_str = INIT_HEADING + [devices_init] + INIT_ENDING
+    forward_str = FORWARD_HEADING + [devices_body] + FORWARD_ENDING
 
     # create init method
     exec("\n    ".join(init_str))
@@ -201,12 +203,14 @@ def main():
         sys.exit(1)
     model_name = sys.argv[1]
     if model_name == "ff": 
-        from models.ff import MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADING,FORWARD_HEADING,SHAPES
+        from models.ff import MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADING,FORWARD_HEADING,INIT_ENDING,FORWARD_ENDING,SHAPES
         globals()['SHAPES'] = SHAPES
         globals()['INIT_BODY'] = INIT_BODY
         globals()['FORWARD_BODY'] = FORWARD_BODY
         globals()['INIT_HEADING'] = INIT_HEADING
         globals()['FORWARD_HEADING'] = FORWARD_HEADING
+        globals()['INIT_ENDING'] = INIT_ENDING
+        globals()['FORWARD_ENDING'] = FORWARD_ENDING
         globals()['MODELBASE'] = MODELBASE
     else:
         #from models.resnet import MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADER,FORWARD_HEADER,SHAPES
