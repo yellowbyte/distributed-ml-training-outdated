@@ -1,4 +1,6 @@
-"""output Souffle rules that encode the following constraints: MEMORY X BANDWIDTH -> LAYERS
+"""to be run on each worker device.
+output Souffle rules that encode the following constraints: MEMORY X BANDWIDTH -> LAYERS
+send the constraints back to workstation
  
 ./constraint_map_gen.py
 """

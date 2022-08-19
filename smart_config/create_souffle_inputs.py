@@ -1,4 +1,5 @@
-"""create Souffle input files (workers.device, workers.bandwidth, workers.memory) from workers.info
+"""create Souffle input files (workers.device, workers.bandwidth, workers.memory) from workers.info.
+workers.info is created by query_workers.py
 
 ./create_souffle_inputs.py
 """
