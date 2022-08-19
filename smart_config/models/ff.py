@@ -25,8 +25,8 @@ INIT_BODY = [
 
 # assume each element in the list is a split-able point
 FORWARD_BODY = [
-    "x1 = self.relu(self.net1(x1))",
-    "x1 = self.net2(x1)",
+    "x = self.relu(self.net1(x))",
+    "x = self.net2(x)",
 ]
 
 
@@ -38,8 +38,8 @@ INIT_HEADING = ["def __init__(self):"] + \
 INIT_ENDING = []
 
 
-FORWARD_HEADING = ["def forward(self, x1):"]
-FORWARD_ENDING = ["return x1"]
+FORWARD_HEADING = ["def forward(self, x):"]
+FORWARD_ENDING = ["return x"]
 # to_here is only needed for actual rpc (RRef object): 
 # need to put it back for actual split
 #FORWARD_HEADING = ["def forward(self, x1):"] + ["x1 = x1.to_here()"]
