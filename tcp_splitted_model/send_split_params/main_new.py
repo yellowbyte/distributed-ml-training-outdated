@@ -3,7 +3,6 @@ import threading
 import time
 from functools import wraps
 
-import wandb
 
 import torch
 import torch.nn as nn
@@ -25,10 +24,6 @@ The split must happen after the make_layer since we need to extract the input fe
 Unfortunately, how inplanes is used is currently not understood.  
 """
 
-"""
-create a dependencies dictionary where key corresponds to the layer and value is the 'dependencies', which in our case is the inplanes because that value will be different depending on where we split 
-"""
-
 #########################################################
 #           Define Model Parallel ResNet50              #
 #########################################################
@@ -39,7 +34,7 @@ create a dependencies dictionary where key corresponds to the layer and value is
 # contain two partitions of the model layers respectively.
 
 
-num_classes = 1000
+num_classes = 10
 
 
 def conv1x1(in_planes, out_planes, stride=1):
@@ -93,6 +88,7 @@ class ResNetShard1(ResNetBase):
     """
     The first part of ResNet.
     """
+
     def __init__(self, device, *args, **kwargs):
         super(ResNetShard1, self).__init__(
             Bottleneck, 64, num_classes=num_classes, *args, **kwargs)
@@ -116,18 +112,14 @@ class ResNetShard1(ResNetBase):
 
     def forward(self, x_rref):
         x1 = x_rref.to_here().to(self.device)
-        print("rn1 input:", x1.shape)
-        x1 = self.cov2d(x1)
-        print("rn1 cov2d:", x1.shape)
-        x1 = self.layer_norm(x1)
-        x1 = self.relu(x1)
-        print("rn1 relu:", x1.shape)
-        x1 = self.maxpool(x1)
-        print("rn1 maxpool:", x1.shape)
-        x1 = self.make_layer1(x1)
-        print("rn1 make_layer1:", x1.shape)
-        x1 = self.make_layer2(x1)
-        print("rn1 make_layer2:", x1.shape)
+        with self._lock:
+            print("conv2d type: {}".format(type(self.cov2d)))
+            x1 = self.cov2d(x1)
+            x1 = self.layer_norm(x1)
+            x1 = self.relu(x1)
+            x1 = self.maxpool(x1)
+            x1 = self.make_layer1(x1)
+            x1 = self.make_layer2(x1)
         return x1.cpu()
 
 
@@ -141,30 +133,21 @@ class ResNetShard2(ResNetBase):
             Bottleneck, 512, num_classes=num_classes, *args, **kwargs)
 
         self.device = device
-        ##block_expansion = 2
         # self.seq = nn.Sequential(
         self.make_layer1 = self._make_layer(256, 6, stride=2)
         self.make_layer2 = self._make_layer(512, 3, stride=2)
-        #self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        self.avgpool = nn.AvgPool2d(7, stride=1)
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         # ).to(self.device)
 
         self.fc = nn.Linear(512 * self._block.expansion, num_classes).to(self.device)
-        #self.fc = nn.Linear(512 * block_expansion, num_classes).to(self.device)
 
     def forward(self, x_rref):
         x1 = x_rref.to_here().to(self.device)
         with self._lock:
-            print("rn2 input:", x1.shape)
             x1 = self.make_layer1(x1)
-            print("rn2 make_layer1:", x1.shape)
-            print("rn2 expansion:", self._block.expansion)
             x1 = self.make_layer2(x1)
-            print("rn2 make_layer2:", x1.shape)
             x1 = self.avgpool(x1)
-            print("rn2 avgpool")
             x1 = self.fc(torch.flatten(x1, 1))
-            print("rn2 fc:", x1.shape)
             # out = self.fc(torch.flatten(self.seq(x), 1))
         return x1.cpu()
 
@@ -358,21 +341,9 @@ def run_master(split_size):
         print('Accuracy of the network on the 10000 test images: {} %'.format(100 * correct / total))
 
 
-def test():
-    total_step = len(train_loader)
-    for epoch in range(num_epochs):
-        print("Current Epoch :{}".format(epoch))
-        for i, (images, label) in enumerate(train_loader):
-            images = images  # reshape tensor matrix to a vector form
-            label = label
-            breakpoint()
-
-
-
-
 def run_worker(rank, world_size, num_split):
-    os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '29500'
+    # os.environ['MASTER_ADDR'] = 'localhost'
+    # os.environ['MASTER_PORT'] = '29500'
     # Higher timeout is added to accommodate for kernel compilation time in case of ROCm.
     options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=100000)
 
@@ -445,12 +416,10 @@ def preprocess(init_body_whole, forward_body_whole, num_devices, dependencies):
     return (devices_init, devices_body)
 
 
-def extract_layers(init_body_whole, forward_body_whole, dependencies, start_index, end_index):
-#    devices_init = init_body_whole[dependencies[start_index]:dependencies[end_index]]
-#    devices_body = forward_body_whole[start_index:end_index]
-    devices_init = init_body_whole[start_index:end_index]
+#def extract_layers(init_body_whole, forward_body_whole, dependencies, start_index, end_index):
+def extract_layers(init_body_whole, forward_body_whole, start_index, end_index):
+    devices_init = init_body_whole[dependencies[start_index]:dependencies[end_index]]
     devices_body = forward_body_whole[start_index:end_index]
-
 
     # "self.cov2d = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)",
     # "self.layer_norm = self._norm_layer(self.inplanes)",
@@ -464,15 +433,15 @@ def extract_layers(init_body_whole, forward_body_whole, dependencies, start_inde
     # "self.avgpool = nn.AdaptiveAvgPool2d((1, 1))",
     # initialize the inplane number
 #    inplane_num_l = []
-#    inplane_num = 0
-#    for lines in devices_init:
-#        if "self._make_layer" not in lines:
-#            continue
-#        else:
-#            inplane_num_l.append(int(lines.split("(")[1].split(",")[0]))
-#    if len(inplane_num_l) != 0:
-#        inplane_num = inplane_num_l[-1]
-
+#   inplane_num = 0
+#   for lines in devices_init:
+#       if "self._make_layer" not in lines:
+#           continue
+#       else:
+#           inplane_num_l.append(int(lines.split("(")[1].split(",")[0]))
+#   if len(inplane_num_l) != 0:
+#       inplane_num = inplane_num_l[-1]
+#
 #    return ("\n    ".join(devices_init), "\n    ".join(devices_body), inplane_num)
     return ("\n    ".join(devices_init), "\n    ".join(devices_body))
 
@@ -482,7 +451,7 @@ def create_model(devices_init, devices_body, inplane_num, i):
 
     init_str = ["def __init__(self, device, *args, **kwargs):"] + [
         "super(RN" + str(i) + ", self).__init__(Bottleneck, " + str(
-            inplane_num) + ", num_classes=num_classes, *args, **kwargs)"] + ["self.device=device"] + ["block_expansion=2"] + [devices_init]
+            inplane_num) + ", num_classes=num_classes, *args, **kwargs)"] + [devices_init]
     forward_str = ["def forward(self, x1):"] + ["x1 = x1.to_here()"] + [devices_body] + ["return x1.cpu()"]
     # print('@@@ INIT: ', init_str)
     # print("@@@ FORWARD: ", forward_str)
@@ -498,6 +467,17 @@ def create_model(devices_init, devices_body, inplane_num, i):
 
 
 devices_num = 2
+classes = list()
+
+parameters = [
+    "64",  # zero splitting
+    "64",  # first possible split point
+    "256",
+    "512",
+    "1024",
+    "2048",
+]
+
 init_body = [
     "self.cov2d = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)",
     "self.layer_norm = self._norm_layer(self.inplanes)",
@@ -505,9 +485,12 @@ init_body = [
     "self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)",
     "self.make_layer1 = self._make_layer(64, 3)",
     "self.make_layer2 = self._make_layer(128, 4, stride=2)",
+
     "self.make_layer3 = self._make_layer(256, 6, stride=2)",
+
+    "self.make_layer4 = self._make_layer(512, 3, stride=2)",
     "self.avgpool = nn.AdaptiveAvgPool2d((1, 1))",
-    "self.fc = nn.Linear(512 * block_expansion, num_classes)",
+    "self.fc = nn.Linear(512 * self._block.expansion, num_classes)",
     ""
 ]
 
@@ -519,6 +502,7 @@ forward_body = [
     "x1 = self.make_layer1(x1)",
     "x1 = self.make_layer2(x1)",
     "x1 = self.make_layer3(x1)",
+    "x1 = self.make_layer4(x1)",
     "x1 = self.avgpool(x1)",
     "x1 = self.fc(torch.flatten(x1, 1))",
     ""
@@ -541,12 +525,11 @@ dependencies = {
 # devices_init, devices_body = preprocess(init_body, forward_body, 2, dependencies)
 #devices_init1, devices_body1, inplane_num1 = extract_layers(init_body, forward_body, dependencies, 0, 6)
 #devices_init2, devices_body2, inplane_num2 = extract_layers(init_body, forward_body, dependencies, 6,
-### meta proramming part
-#devices_init1, devices_body1 = extract_layers(init_body, forward_body, dependencies, 0, 6)
-#devices_init2, devices_body2 = extract_layers(init_body, forward_body, dependencies, 6,
-#                                                            len(forward_body) - 1)
-#create_model(devices_init1, devices_body1, inplane_num1, 0)
-#create_model(devices_init2, devices_body2, inplane_num2, 1)
+devices_init1, devices_body1, inplane_num1 = extract_layers(init_body, forward_body, 0, 4)
+devices_init2, devices_body2, inplane_num2 = extract_layers(init_body, forward_body, 4,
+                                                            len(forward_body) - 1)
+create_model(devices_init1, devices_body1, 64, 0)
+create_model(devices_init2, devices_body2, 64, 1)
 
 # for i in range(devices_num):
 #     # create model that initialize/execute specific layers
@@ -559,23 +542,16 @@ dependencies = {
 #     exec("TM"+str(i)+" = type('RN'+str(i),(ResNetBase,),{'__init__': globals()['__init__'],'forward': globals()['forward']})")
 
 if __name__ == "__main__":
-    #test()
-    world_size = 3
-    #breakpoint()
-    #for num_split in [1, 2, 4, 8]:
-    #    tik = time.time()
-    #    mp.spawn(run_worker, args=(world_size, num_split), nprocs=world_size, join=True)
-    #    tok = time.time()
-    #    print(f"number of splits = {num_split}, execution time = {tok - tik}")
-    #dist.init_process_group(backend, init_method='tcp://10.1.1.20:23456',
-    #                        rank=3, world_size=3)
-    mp.spawn(run_worker, args=(world_size, 1), nprocs=world_size, join=True)
-
-
-
-
-
-
+    # # world_size = 3
+    # # for num_split in [1, 2, 4, 8]:
+    # #     tik = time.time()
+    # #     mp.spawn(run_worker, args=(world_size, num_split), nprocs=world_size, join=True)
+    # #     tok = time.time()
+    # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
+    # # dist.init_process_group(backend, init_method='tcp://10.1.1.20:23456',
+    # #                         rank=3, world_size=3)
+    #
+    #
     # # breakpoint()
     # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
     # os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
@@ -596,76 +572,33 @@ if __name__ == "__main__":
     # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
     # # rpc.shutdown()
 
-### original code
-#   # breakpoint()
-#   os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
-#   os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
-#   os.environ['MASTER_ADDR'] = '192.168.0.195'
-#   os.environ['MASTER_PORT'] = '29411'
-#   os.environ['WORKER1_PORT'] = '29401'
-#   os.environ['WORKER2_PORT'] = '29400'
-#   print(os.environ.get('GLOO_SOCKET_IFNAME'))
-#   # rpc.init_rpc("master", rank=0, world_size=3)
-#   #
+    # breakpoint()
+    os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
+    os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
+    os.environ['MASTER_ADDR'] = '192.168.1.10'
+    os.environ['MASTER_PORT'] = '29413'
+    #os.environ['WORKER1_PORT'] = '29401'
+    #os.environ['WORKER2_PORT'] = '29400'
+    print(os.environ.get('GLOO_SOCKET_IFNAME'))
+    # rpc.init_rpc("master", rank=0, world_size=3)
+    #
 
-#   # phone ip and interface
-#   # 192.168.0.153
-#   # wlan0
+    # phone ip and interface
+    # 192.168.0.153
+    # wlan0
 
-#   # # Perform Split Training
-#   # print("check whether worker is init")
-#   # # run_master(2)
-#   # world_size = 3
-#   # mp.spawn(run_worker, args=(world_size, 200), nprocs=world_size, join=True)
-#   # #
-#   # # for num_split in [1,2,4,8]:
-#   # #     tik = time.time()
-#   # #     run_master(num_split)
-#   # #     tok = time.time()
-#   # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
-#   # rpc.shutdown()
-#   # # Sending Pickled Class
 
-#   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-#   #s.bind((os.environ['MASTER_ADDR'], int(os.environ['MASTER_PORT'])))
-#   #s.listen(5)
-#   #conn, addr = s.accept()
-#   # print('Connected by', addr)
-#   HEADERSIZE = 10
-#   # # d = {1: "hi", 2: "there"}
-#   # data = {
-#   #     # constructor
-#   #     "__init__": "globals()['__init__']",
-#   #     # member functions
-#   #     "forward": "globals()['forward']"
-#   # }
-#   # breakpoint()
-#   #msg = pickle.dumps(toy_models[0])
-#   #msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   #print(msg)
-#   #conn.send(msg)
-#   #data = conn.recv(16)
-#   #breakpoint()
-#   s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER2_PORT'])))
-#   msg = pickle.dumps("0:6")
-#   msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   print(msg)
-#   s.send(msg)
-#   s.close()
 
-#   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#   #s.connect(("192.168.0.153", int(os.environ['WORKER1_PORT'])))
-#   s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER1_PORT'])))
-#   msg = pickle.dumps("6:10")
-#   msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   print(msg)
-#   s.send(msg)
-#   s.close()
-
-#   # Perform Distributed Learning
-#   options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=100000)
-#   rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
-#   run_master(20)
-#   print("after run_master")
-
+    # # Perform Split Training
+    # print("check whether worker is init")
+    # # run_master(2)
+    world_size = 3
+    mp.spawn(run_worker, args=(world_size, 200), nprocs=world_size, join=True)
+    # #
+    # # for num_split in [1,2,4,8]:
+    # #     tik = time.time()
+    # #     run_master(num_split)
+    # #     tok = time.time()
+    # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
+    # rpc.shutdown()

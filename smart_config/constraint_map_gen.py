@@ -59,6 +59,8 @@ def create_all_splits(layers_info: Tuple[int,int]) -> Set[Set[int]]:
 
 def set2list(_set, _key=None, _reverse=False):
     """
+    covert a set to a list ordered by `_key`. The order 
+    can be reversed if `_reverse` is True
     """
     return sorted(list(_set), key=_key, reverse=_reverse)
 
@@ -75,6 +77,9 @@ def rand_param_gen(shape):
     elif _type == "randint":
         # tensor of size shape with high of 100
         return torch.randint(100,(shape[0],shape[1]))
+#    elif _type == "randn":
+#        if len(shape)
+#        return torch.randn()
 
 
 def getlownhigh(s: Set[int]) -> Tuple[int,Any]:
@@ -92,6 +97,7 @@ def getlownhigh(s: Set[int]) -> Tuple[int,Any]:
 
 def forced_execution(s: Set[int]) -> bool:
     """
+    force execute current model portion specified by `s`
     """
     start_index,end_index = getlownhigh(s)
     # perform meta-programming based on s
@@ -102,9 +108,10 @@ def forced_execution(s: Set[int]) -> bool:
     inputs = rand_param_gen(SHAPES[start_index])
     try:
         with time_limit(1):
-            _ = model.forward(inputs)
+            out = model.forward(inputs)
     except TimeoutException as e:
         return False
+    #breakpoint()
     return True
 
 
@@ -138,9 +145,9 @@ def forced_execution_driver() -> List[str]:
     for acs in accepted_splits:
         start,end = getlownhigh(acs)
         if end != None:
-            out.append(str(start)+','+str(end))
+            out.append(str(start)+","+str(end))
         else:
-            out.append(str(start)+',0')
+            out.append(str(start)+",0")
     return out
 
 
@@ -171,9 +178,9 @@ def extract_layers(start_index:int, end_index:int) -> Tuple[str,str]:
     specified by start_index and end_index
     """
     # extract init_body layers
-    devices_init = INIT_BODY[start_index:end_index]
+    devices_init = INIT_BODY[start_index:end_index+1]
     # extract forward_body layers
-    devices_body = FORWARD_BODY[start_index:end_index]
+    devices_body = FORWARD_BODY[start_index:end_index+1]
 
     return ("\n    ".join(devices_init), "\n    ".join(devices_body))
 
@@ -192,7 +199,7 @@ def create_model(devices_init: str, devices_body: str) -> None:
 
     # make model portion visible in global scope
     exec("global MODEL")
-    globals()["MODEL"] = locals()['MODEL']
+    globals()["MODEL"] = locals()["MODEL"]
 
 
 ########################
@@ -205,18 +212,21 @@ def main():
         sys.exit(1)
     model_name = sys.argv[1]
     if model_name == "ff": 
-        from models.ff import MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADING,FORWARD_HEADING,INIT_ENDING,FORWARD_ENDING,SHAPES
-        globals()['SHAPES'] = SHAPES
-        globals()['INIT_BODY'] = INIT_BODY
-        globals()['FORWARD_BODY'] = FORWARD_BODY
-        globals()['INIT_HEADING'] = INIT_HEADING
-        globals()['FORWARD_HEADING'] = FORWARD_HEADING
-        globals()['INIT_ENDING'] = INIT_ENDING
-        globals()['FORWARD_ENDING'] = FORWARD_ENDING
-        globals()['MODELBASE'] = MODELBASE
+        from models.ff import (MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADING,
+            FORWARD_HEADING,INIT_ENDING,FORWARD_ENDING,SHAPES)
+        globals()["SHAPES"] = SHAPES
+        globals()["INIT_BODY"] = INIT_BODY
+        globals()["FORWARD_BODY"] = FORWARD_BODY
+        globals()["INIT_HEADING"] = INIT_HEADING
+        globals()["FORWARD_HEADING"] = FORWARD_HEADING
+        globals()["INIT_ENDING"] = INIT_ENDING
+        globals()["FORWARD_ENDING"] = FORWARD_ENDING
+        globals()["MODELBASE"] = MODELBASE
+    elif model_name == "resnet":
+        from models.ff import (MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADING,
+            FORWARD_HEADING,INIT_ENDING,FORWARD_ENDING,SHAPES)
     else:
-        #from models.resnet import MODELBASE,INIT_BODY,FORWARD_BODY,INIT_HEADER,FORWARD_HEADER,SHAPES
-        pass
+        raise ValueError("unsupported model")
 
     constraints: List[str] = forced_execution_driver()    
     breakpoint()

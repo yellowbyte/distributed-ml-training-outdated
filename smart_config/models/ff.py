@@ -18,10 +18,19 @@ class MODELBASE(nn.Module):
 
 
 INIT_BODY = [
-    "self.net1 = torch.nn.Linear(input_size, hidden_size)\n    self.relu = torch.nn.ReLU()",
+    "self.net1 = torch.nn.Linear(input_size, hidden_size)"
+    "self.relu = torch.nn.ReLU()",
+
     "self.net2 = torch.nn.Linear(hidden_size, num_classes)",
 ]
-
+#FORWARD_BODY = [
+#    "x = self.relu(x)",
+#    "x = self.net1(x)",
+#    "x = self.net2(x)",
+#]
+#FORWARD_BODY = [
+#    "x = self.net2(self.relu(self.net1(x)))",
+#]
 
 # assume each element in the list is a split-able point
 FORWARD_BODY = [

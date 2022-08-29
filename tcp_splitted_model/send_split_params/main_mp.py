@@ -3,7 +3,6 @@ import threading
 import time
 from functools import wraps
 
-import wandb
 
 import torch
 import torch.nn as nn
@@ -166,7 +165,8 @@ class DistResNet50(nn.Module):
         # Put the first part of the ResNet50 on workers[0]
         self.p1_rref = rpc.remote(
             workers[0],
-            RN1,
+            #RN1,
+            ResNetShard2,
             args=("cpu",) + args,
             kwargs=kwargs
         )
@@ -174,7 +174,8 @@ class DistResNet50(nn.Module):
         # Put the second part of the ResNet50 on workers[1]
         self.p2_rref = rpc.remote(
             workers[1],
-            RN0,
+            #RN0,
+            ResNetShard1,
             args=("cpu",) + args,
             kwargs=kwargs
         )
@@ -535,7 +536,6 @@ if __name__ == "__main__":
     # # dist.init_process_group(backend, init_method='tcp://10.1.1.20:23456',
     # #                         rank=3, world_size=3)
     #
-    wandb.init(project="fl-dist", entity="zjc664656505", settings=wandb.Settings(console="off"))
     #
     # # breakpoint()
     # os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
@@ -560,10 +560,10 @@ if __name__ == "__main__":
     # breakpoint()
     os.environ['GLOO_SOCKET_IFNAME'] = 'wlp72s0'
     os.environ['TP_SOCKET_IFNAME'] = 'wlp72s0'
-    os.environ['MASTER_ADDR'] = '192.168.0.195'
-    os.environ['MASTER_PORT'] = '29411'
-    os.environ['WORKER1_PORT'] = '29401'
-    os.environ['WORKER2_PORT'] = '29400'
+    os.environ['MASTER_ADDR'] = '192.168.1.10'
+    os.environ['MASTER_PORT'] = '29413'
+    #os.environ['WORKER1_PORT'] = '29401'
+    #os.environ['WORKER2_PORT'] = '29400'
     print(os.environ.get('GLOO_SOCKET_IFNAME'))
     # rpc.init_rpc("master", rank=0, world_size=3)
     #

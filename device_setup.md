@@ -1,4 +1,4 @@
-Device Setup:
+New Device Setup:
 1. install termux from google play
 2. change termux repo by following this link - https://www.learntermux.tech/2021/08/termux-repository-under-maintenance.html. Choose A1 repo.
 3. install unbuntu on termux: 
