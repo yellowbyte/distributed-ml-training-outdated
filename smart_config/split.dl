@@ -11,18 +11,26 @@
 .decl SplitDevices(a:symbol, y:number, z:number, b:symbol, w:number, x:number, c:symbol, t:number, v:number)
 .decl CheckUnique(a:number, b:number, c:number, d:number, e:number, f:number)
 
-//Device("d1").
-//Device("d2").
-//Device("d3").
+//
+// workers 
+//
+Device("d1").
+Device("d2").
+Device("d3").
 
-//Memory("d1", 10.0).
-//Memory("d2", 30.0).
-//Memory("d3", 36.0).
+Memory("d1", 10.0).
+Memory("d2", 30.0).
+Memory("d3", 36.0).
 
-//Bandwidth("d1", 15.0).
-//Bandwidth("d2", 31.0).
-//Bandwidth("d3", 30.0).
+Bandwidth("d1", 15.0).
+Bandwidth("d2", 31.0).
+Bandwidth("d3", 30.0).
 
+//
+// model constraints
+//
+
+// info on each split-able portion
 // layer number, input size, output size, number of nodes
 Layer(1, 10.0, 5.0, 0.1).
 Layer(2, 3.0, 2.0, 0.12).
