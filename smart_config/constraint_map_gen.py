@@ -1,5 +1,6 @@
 """to be run on each worker device.
 output Souffle rules that encode the following constraints: MEMORY X BANDWIDTH -> LAYERS
+* need at least MEMORY X BANDWIDTH to handle LAYERS *
 send the constraints back to workstation
  
 ./constraint_map_gen.py

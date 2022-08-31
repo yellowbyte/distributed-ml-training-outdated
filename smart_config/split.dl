@@ -1,27 +1,31 @@
 .decl Device(x:symbol)
 .decl Memory(x:symbol, y:float)
-.decl Bandwidth(x:symbol, y:float)
-.input Device(IO=file, filename="infiles/workers.device", delimiter=",")
-.input Memory(IO=file, filename="infiles/workers.memory", delimiter=",")
-.input Bandwidth(IO=file, filename="infiles/workers.bandwidth", delimiter=",")
+.decl Bandwidth(x:symbol, y:float)  // latencies
+.input Device(IO=file, filename="workers.device", delimiter=",")
+.input Memory(IO=file, filename="workers.memory", delimiter=",")
+.input Bandwidth(IO=file, filename="workers.bandwidth", delimiter=",")
 
-.decl Layer(a:number, b:float, c:float, d:float)
-.decl Layers(a:number, b:number, c:float, d:float, e:float)
 .decl SplitLayer(x:number, w:number, z:symbol)
+
+.decl Layers(a:number, b:number, c:float, d:float)
 .decl SplitDevices(a:symbol, y:number, z:number, b:symbol, w:number, x:number, c:symbol, t:number, v:number)
 .decl CheckUnique(a:number, b:number, c:number, d:number, e:number, f:number)
+.input Layers(IO=file, filename="workers.layers", delimiter=",")
+.input SplitDevices(IO=file, filename="workers.splitdevices", delimiter=",")
+.input CheckUnique(IO=file, filename="workers.checkunique", delimiter=",")
 
 //
 // workers 
 //
+
+// static example
+// actual: workers.{device,memory,bandwidth}
 Device("d1").
 Device("d2").
 Device("d3").
-
-Memory("d1", 10.0).
-Memory("d2", 30.0).
-Memory("d3", 36.0).
-
+//Memory("d1", 10.0).
+//Memory("d2", 30.0).
+//Memory("d3", 36.0).
 Bandwidth("d1", 15.0).
 Bandwidth("d2", 31.0).
 Bandwidth("d3", 30.0).
@@ -29,29 +33,34 @@ Bandwidth("d3", 30.0).
 //
 // model constraints
 //
+// TODO: Layers, CheckUnique, SplitDevices
+// only SplitLayer is static
 
 // info on each split-able portion
 // layer number, input size, output size, number of nodes
-Layer(1, 10.0, 5.0, 0.1).
-Layer(2, 3.0, 2.0, 0.12).
-Layer(3, 7.0, 7.0, 1.0).
-Layer(4, 2.0, 3.0, 0.11).
+// Layer is not used (informational only)
+//Layer(1, 10.0, 5.0, 0.1).
+//Layer(2, 3.0, 2.0, 0.12).
+//Layer(3, 7.0, 7.0, 1.0).
+//Layer(4, 2.0, 3.0, 0.11).
 
 // layers combination
-Layers(1,2,13.0,7.0,9.0).
-Layers(1,3,20.0,14.0,12.0).
-Layers(1,4,22.0,17.0,14.0).
-Layers(2,3,10.0,9.0,6.0).
-Layers(2,4,12.0,12.0,8.0).
-Layers(3,4,9.0,10.0,5.0).
+// Layers(layer start, layer end, bandwidth min, memory min)
+Layers(1,2,13.0,9.0).
+Layers(1,3,20.0,12.0).
+Layers(1,4,22.0,14.0).
+Layers(2,3,10.0,6.0).
+Layers(2,4,12.0,8.0).
+Layers(3,4,9.0,5.0).
 // a device can be assigned to one layer
-Layers(1,0,10.0,5.0,6.0).
-Layers(2,0,3.0,2.0,3.0).
-Layers(3,0,7.0,7.0,3.0).
-Layers(4,0,2.0,3.0,2.0).
+Layers(1,0,10.0,6.0).
+Layers(2,0,3.0,3.0).
+Layers(3,0,7.0,3.0).
+Layers(4,0,2.0,2.0).
 
-SplitLayer(0,0,k) :- Device(k).
-SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,b,c), a<z, b<z, c<y.
+// SplitLayer(layer start, layer end, device)
+SplitLayer(0,0,k) :- Device(k).  // device k has no assignment
+SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,c), a<z, c<y.
 
 // currently need to specify all possible combinations
 // this can be done by a separate program 
@@ -60,9 +69,10 @@ CheckUnique(a,b,c,d,e,f) :-
 	(a=1,b=2,c=3,d=4,e=0,f=0;a=1,b=3,c=4,d=0,e=0,f=0;a=1,b=0,c=2,d=4,e=0,f=0).  
 
 SplitDevices(a,y,z,b,w,x,c,t,v) :- 
-	SplitLayer(y,z,a), 
-	SplitLayer(w,x,b), 
-	SplitLayer(t,v,c), 
+  // call SplitLayer for each possible device {a,b,c}
+  SplitLayer(y,z,a), 
+  SplitLayer(w,x,b), 
+  SplitLayer(t,v,c), 
   // A device can only be assigned one time per execution
   a!=b, b!=c, a!=c,
   // All layers must be assigned but the same layer cannot be assigned to two devices
