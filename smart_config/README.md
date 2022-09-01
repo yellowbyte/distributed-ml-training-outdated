@@ -11,11 +11,13 @@ Perform Smart Splitting
 2. (WS) create\_souffle\_inputs.py to create workers.{memory,device,bandwidth} for split.dl
 3. (WS) normalize\_bandwidth.py so higher latency will be assigned smaller value
 4. (D)  constraint\_map\_gen.py to create model constraints (layers -> current Memory X Bandwidth) for split.dl
-  * currently is layers -> Memory
+  * currently have layers -> Memory
   * TODO: bandwidth cannot be tested individually
 5. (WS) TODO: create\_model\_constraints.py to create souffle rules on model portions constraints
 6. (WS) split.dl to get model portion assignment
-7. (WS) TODO: linear programming with Gurobi
+7. (WS) TODO: linear programming with Gurobi (optimize for?) or based on highest number of assignments
+  * if we have 10 devices, ideally all 10 can participate in the training
+  * if we optimize for speed, it may choose to run full model on workstation 
 
 ### run souffle
 * `souffle -F./infiles -D. split.dl`
