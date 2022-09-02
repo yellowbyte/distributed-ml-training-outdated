@@ -48,7 +48,6 @@ class ToyModelBase(nn.Module):
         return [RRef(p) for p in self.parameters()]
 
 
-
 # class ToyModel1(ToyModelBase):
 #     def __init__(self, input_size, hidden_size, num_classes):
 #         super(ToyModel1, self).__init__()
@@ -71,6 +70,7 @@ class ToyModelBase(nn.Module):
 #         #with self._lock:
 #         out = self.net2(out)
 #         return out.cpu()
+
 
 class DistToyModel(nn.Module):
     def __init__(self, split_size, input_size, hidden_size, num_classes, workers, *args, **kwargs):

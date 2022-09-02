@@ -15,9 +15,7 @@ Perform Smart Splitting
   * TODO: bandwidth cannot be tested individually
 5. (WS) TODO: create\_model\_constraints.py to create souffle rules on model portions constraints
 6. (WS) split.dl to get model portion assignment
-7. (WS) TODO: linear programming with Gurobi (optimize for?) or based on highest number of assignments
-  * if we have 10 devices, ideally all 10 can participate in the training
-  * if we optimize for speed, it may choose to run full model on workstation 
+7. (WS) TODO: linear programming with Gurobi
 
 ### run souffle
 * `souffle -F./infiles -D. split.dl`
