@@ -21,6 +21,16 @@ def create_CheckUnique_rule(num_devices,model_portions):
     # based on how many devices/workers
     syms = set()
 
+    # CheckUnique number of arguments equals `num_devices` * 2 
+    for i in range(num_devices):
+        cur_sym = gen_random_sym()
+        while (cur_sym in syms): 
+            # get new variable name if name generated previously
+            cur_sym = gen_random_sym()
+        syms.add(cur_sym)
+    # `model_portions` affects the argument assignment
+            
+
 
 def create_Layers_rule():
     """
