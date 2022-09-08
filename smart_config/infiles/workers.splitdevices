@@ -1,0 +1,6 @@
+SplitDevices(a,y,z,b,w,x,c,t,v) :- 
+  SplitLayer(y,z,a), 
+  SplitLayer(w,x,b), 
+  SplitLayer(t,v,c), 
+  a!=b, b!=c, a!=c,
+  CheckUnique(y,z,w,x,t,v).

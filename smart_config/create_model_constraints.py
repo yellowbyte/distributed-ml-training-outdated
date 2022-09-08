@@ -164,14 +164,38 @@ def create_SplitDevices_rule(num_devices):
     return header + constraints 
 
 
+def write_souffle_code(rules):
+    """
+    """
+    with open("split.dl", "w") as s, \
+            open("split_base.dl", "r") as b:      
+        source = b.readlines()
+        source.extend(rules)
+        s.write("\n".join(rules))
+
 
 def main(): 
+    if len(sys.argv) != 2:
+        print("need to choose a model: {ff,resnet}")
+        sys.exit(1)
+    model_name = sys.argv[1]
+    if model_name == "ff": 
+        from models.ff import FORWARD_BODY
+        globals()["FORWARD_BODY"] = FORWARD_BODY
+    elif model_name == "resnet":
+        from models.ff import (FORWARD_BODY)
+        globals()["FORWARD_BODY"] = FORWARD_BODY
+    else:
+        raise ValueError("unsupported model")
+    num_model_portions = len(FORWARD_BODY)
+    model_portions = [i+1 for i in range(num_model_portions)]
+
     num_devices = len(DEVICES) + 1  # + 1 for workstation
-    CheckUnique_rule = create_CheckUnique_rule(num_devices)
-    create_SplitDevices_rule(num_devices)
+    rules = list()
+    rules.append(create_CheckUnique_rule(num_devices,model_portions))
+    rules.append(create_SplitDevices_rule(num_devices))
+    write_souffle_code(rules)
 
 
 if __name__ == "__main__": 
-    #main() 
-    rule = create_SplitDevices_rule(3)
-    breakpoint()
+    main() 
