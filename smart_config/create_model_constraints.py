@@ -252,7 +252,8 @@ def main():
         globals()["FORWARD_BODY"] = FORWARD_BODY
     else:
         raise ValueError("unsupported model")
-    num_model_portions = len(FORWARD_BODY)
+    #TODO: num_model_portions = len(FORWARD_BODY)
+    num_model_portions = 4
     model_portions = [i+1 for i in range(num_model_portions)]
     #TODO: num_devices = len(DEVICES) + 1  # + 1 for workstation
     num_devices = 3

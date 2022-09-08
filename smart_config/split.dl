@@ -129,7 +129,7 @@ SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,c), a<
 // output
 
 .output SplitDevices
-.decl CheckUnique(LTN:number,LCR:number,XEZ:number,QTI:number,OKE:number,XXY:number)
-.decl SplitDevices(DGW:symbol,REJ:number,UKE:number,RGV:symbol,DIK:number,YJI:number,QMP:symbol,RDT:number,AVE:number)
-CheckUnique(EZZ,MCV,BWC,HFU,PCK,TMZ) :- (EZZ=1,MCV=0,BWC=2,HFU=0,PCK=0,TMZ=0).
-SplitDevices(OAR,BAO,DTO,MBJ,PWV,TMS,ANY,DJW,TLZ) :- SplitLayer(BAO,DTO,OAR),SplitLayer(PWV,TMS,MBJ),SplitLayer(DJW,TLZ,ANY),OAR!=MBJ,OAR!=ANY,MBJ!=ANY,CheckUnique(BAO,DTO,PWV,TMS,DJW,TLZ).
+.decl CheckUnique(CGC:number,QQP:number,NCC:number,TLT:number,TIR:number,IXX:number)
+.decl SplitDevices(IVU:symbol,ZSN:number,DLF:number,EYR:symbol,ZRY:number,NGL:number,CSS:symbol,DUO:number,GBD:number)
+CheckUnique(NZJ,MLI,IGU,ZMK,CAZ,HVF) :- (NZJ=1,MLI=0,IGU=2,ZMK=4,CAZ=0,HVF=0;NZJ=1,MLI=2,IGU=3,ZMK=4,CAZ=0,HVF=0;NZJ=1,MLI=3,IGU=4,ZMK=0,CAZ=0,HVF=0;NZJ=1,MLI=0,IGU=2,ZMK=0,CAZ=3,HVF=4;NZJ=1,MLI=0,IGU=2,ZMK=3,CAZ=4,HVF=0;NZJ=1,MLI=2,IGU=3,ZMK=0,CAZ=4,HVF=0).
+SplitDevices(HFG,GIT,RFR,YVS,LFU,IUB,SJI,ZOE,XSF) :- SplitLayer(GIT,RFR,HFG),SplitLayer(LFU,IUB,YVS),SplitLayer(ZOE,XSF,SJI),HFG!=YVS,HFG!=SJI,YVS!=SJI,CheckUnique(GIT,RFR,LFU,IUB,ZOE,XSF).
