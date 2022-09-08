@@ -129,6 +129,7 @@ SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,c), a<
 // output
 
 .output SplitDevices
-
-CheckUnique(SGX,IHH,POE,CVJ,IIK,TNU,KET,KPC,BRZ,FJQ,ICV,YYZ,HZR,NFO) :- (SGX=1,IHH=0,POE=2,CVJ=0,IIK=0,TNU=0,KET=0,KPC=0,BRZ=0,FJQ=0,ICV=0,YYZ=0,HZR=0,NFO=0).
-SplitDevices(GMV,JTJ,OOT,CAI,SLV,CTH,MJN,XXA,NHS,WAG,YWX,GFO,UGO,IFB,BZA,WEP,PLH,MJH,WXG,AON,MFM) :- SplitLayer(JTJ,OOT,GMV),SplitLayer(SLV,CTH,CAI),SplitLayer(XXA,NHS,MJN),SplitLayer(YWX,GFO,WAG),SplitLayer(IFB,BZA,UGO),SplitLayer(PLH,MJH,WEP),SplitLayer(AON,MFM,WXG),GMV!=CAI,GMV!=MJN,GMV!=WAG,GMV!=UGO,GMV!=WEP,GMV!=WXG,CAI!=MJN,CAI!=WAG,CAI!=UGO,CAI!=WEP,CAI!=WXG,MJN!=WAG,MJN!=UGO,MJN!=WEP,MJN!=WXG,WAG!=UGO,WAG!=WEP,WAG!=WXG,UGO!=WEP,UGO!=WXG,WEP!=WXG,CheckUnique(JTJ,OOT,SLV,CTH,XXA,NHS,YWX,GFO,IFB,BZA,PLH,MJH,AON,MFM).
+.decl CheckUnique(PIR:number,LYX:number,MGO:number,EGV:number,XJA:number,QGR:number,NET:number,WWI:number,DLP:number,KAS:number,SVA:number,BMN:number,HPC:number,QNX:number)
+.decl SplitDevices(NMS:symbol,OUQ:number,WLB:number,IIL:symbol,FYZ:number,NRY:number,PXY:symbol,YZC:number,GUB:number,SHP:symbol,CBO:number,LQY:number,YGW:symbol,WCN:number,USA:number,STK:symbol,SVS:number,BLN:number,YCL:symbol,LCP:number,QMA:number)
+CheckUnique(JFO,IUY,ISF,LJG,BDF,OTG,JID,UVB,XHC,XHS,WDJ,QSJ,BON,ZOC) :- (JFO=1,IUY=0,ISF=2,LJG=0,BDF=0,OTG=0,JID=0,UVB=0,XHC=0,XHS=0,WDJ=0,QSJ=0,BON=0,ZOC=0).
+SplitDevices(OMR,DTO,ZHO,HHV,CKR,SCA,OAG,CSU,DDL,LOD,RNA,OQO,BCA,KIF,ZFI,UKT,MXE,FEI,XGN,PCM,ZUR) :- SplitLayer(DTO,ZHO,OMR),SplitLayer(CKR,SCA,HHV),SplitLayer(CSU,DDL,OAG),SplitLayer(RNA,OQO,LOD),SplitLayer(KIF,ZFI,BCA),SplitLayer(MXE,FEI,UKT),SplitLayer(PCM,ZUR,XGN),OMR!=HHV,OMR!=OAG,OMR!=LOD,OMR!=BCA,OMR!=UKT,OMR!=XGN,HHV!=OAG,HHV!=LOD,HHV!=BCA,HHV!=UKT,HHV!=XGN,OAG!=LOD,OAG!=BCA,OAG!=UKT,OAG!=XGN,LOD!=BCA,LOD!=UKT,LOD!=XGN,BCA!=UKT,BCA!=XGN,UKT!=XGN,CheckUnique(DTO,ZHO,CKR,SCA,CSU,DDL,RNA,OQO,KIF,ZFI,MXE,FEI,PCM,ZUR).

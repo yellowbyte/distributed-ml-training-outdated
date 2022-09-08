@@ -254,6 +254,7 @@ def main():
         raise ValueError("unsupported model")
     num_model_portions = len(FORWARD_BODY)
     model_portions = [i+1 for i in range(num_model_portions)]
+    num_devices = len(DEVICES) + 1  # + 1 for workstation
 
     # write base souffle code
     copy_file("split_base.dl", "split.dl")
@@ -265,7 +266,6 @@ def main():
     write_souffle_code("split.dl", decls, front=True)
 
     # create rules
-    num_devices = len(DEVICES) + 1  # + 1 for workstation
     rules = list()
     rules.append(create_CheckUnique_rule(num_devices,model_portions))
     rules.append(create_SplitDevices_rule(num_devices))
