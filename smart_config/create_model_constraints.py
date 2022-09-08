@@ -34,6 +34,27 @@ def get_partitions(seq,n):
     return [c for c in valid_chunks]
 
 
+def create_CheckUnique_decl(num_devices:int,model_portions:List):
+    """
+    """
+    # based on how many devices/workers
+    syms = list()
+
+    # CheckUnique number of arguments equals `num_devices` * 2 
+    for _ in range(num_devices * 2):
+        cur_sym = gen_random_sym()
+        while (cur_sym in syms): 
+            # get new variable name if name generated previously
+            cur_sym = gen_random_sym()
+        syms.append(cur_sym)
+
+    decl = ".decl CheckUnique("
+    for s in syms: 
+        decl += s+":number," 
+    decl = decl[:-1]+")"
+    return decl
+
+
 def create_CheckUnique_rule(num_devices:int,model_portions:List):
     """
     create corresponding Souffle rule given `num_devices` and `model_portions`
@@ -106,6 +127,38 @@ def create_Layers_rule():
     pass
 
 
+def create_SplitDevices_decl(num_devices):
+    """
+    """
+    # based on how many devices/workers
+    devices = dict()
+    seen = set()
+
+    # CheckUnique number of arguments equals `num_devices` * 2 
+    for _ in range(num_devices):
+        # each device has three corresponding symbols
+        cur_device = list()
+        for _ in range(3):
+            cur_sym = None
+            cur_sym = gen_random_sym()
+            while (cur_sym in seen): 
+                # get new variable name if name generated previously
+                cur_sym = gen_random_sym()
+            assert cur_sym is not None, "get_random_sym failed in create_SplitDevices_decl"
+            seen.add(cur_sym)
+            cur_device.append(cur_sym)
+        dev_sym = cur_device.pop(0)
+        devices[dev_sym] = cur_device
+
+    decl = ".decl SplitDevices("
+    for sym,layers in devices.items():
+        decl += sym+":symbol,"+layers[0]+":number,"+layers[1]+":number,"
+    decl = decl[:-1]+")"
+
+    return decl
+    
+
+
 def create_SplitDevices_rule(num_devices):
     """
     create corresponding Souffle rule given `num_devices`
@@ -165,13 +218,24 @@ def create_SplitDevices_rule(num_devices):
     return header + constraints 
 
 
-def write_souffle_code(rules):
+def write_souffle_code(file:str, content:List, front=False):
     """
     """
-    with open("split.dl", "w") as s, \
-            open("split_base.dl", "r") as b:      
+    with open(file, "a+") as s:
+        if front: 
+            source = s.read()
+            s.seek(0,0)
+            s.write("\n".join(content)+"\n"+source)
+        else:  # add to end of file
+            s.write("\n".join(content))
+
+
+def copy_file(src_file, dst_file):
+    """
+    """
+    with open(dst_file, "w") as s, \
+            open(src_file, "r") as b:      
         source = b.readlines()
-        source.extend(rules)
         s.write("\n".join(source))
 
 
@@ -191,11 +255,21 @@ def main():
     num_model_portions = len(FORWARD_BODY)
     model_portions = [i+1 for i in range(num_model_portions)]
 
+    # write base souffle code
+    copy_file("split_base.dl", "split.dl")
+
+    # create declarations
+    decls = list() 
+    decls.append(create_CheckUnique_decl(num_devices,model_portions))
+    decls.append(create_SplitDevices_decl(num_devices))
+    write_souffle_code("split.dl", decls, front=True)
+
+    # create rules
     num_devices = len(DEVICES) + 1  # + 1 for workstation
     rules = list()
     rules.append(create_CheckUnique_rule(num_devices,model_portions))
     rules.append(create_SplitDevices_rule(num_devices))
-    write_souffle_code(rules)
+    write_souffle_code("split.dl", rules)
 
 
 if __name__ == "__main__": 
