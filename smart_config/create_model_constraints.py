@@ -172,7 +172,7 @@ def write_souffle_code(rules):
             open("split_base.dl", "r") as b:      
         source = b.readlines()
         source.extend(rules)
-        s.write("\n".join(rules))
+        s.write("\n".join(source))
 
 
 def main(): 
