@@ -254,7 +254,8 @@ def main():
         raise ValueError("unsupported model")
     num_model_portions = len(FORWARD_BODY)
     model_portions = [i+1 for i in range(num_model_portions)]
-    num_devices = len(DEVICES) + 1  # + 1 for workstation
+    #TODO: num_devices = len(DEVICES) + 1  # + 1 for workstation
+    num_devices = 3
 
     # write base souffle code
     copy_file("split_base.dl", "split.dl")
