@@ -17,11 +17,13 @@ def main():
     
     with open("workers.device", "w") as d, \
             open("workers.bandwidth", "w") as b, \
+            open("workers.util", "w") as u, \
             open("workers.memory", "w") as m:      
         for winfo in workers_info:
-            device,memory,latency = winfo.split(",")
+            device,memory,util,latency = winfo.split(",")
             d.write(device+os.linesep)
             b.write(device+","+latency+os.linesep)            
+            u.write(device+","+util+os.linesep)            
             m.write(device+","+memory+os.linesep)
 
 

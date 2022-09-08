@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 Device = namedtuple("Device", "ip id")
 
 DEVICES = [

@@ -1,8 +1,10 @@
 .decl Device(x:symbol)
 .decl Memory(x:symbol, y:float)
+//.decl Util(x:symbol, y:float)  // CPU utilization
 .decl Bandwidth(x:symbol, y:float)  // latencies
 .input Device(IO=file, filename="workers.device", delimiter=",")
 .input Memory(IO=file, filename="workers.memory", delimiter=",")
+//.input Util(IO=file, filename="workers.util", delimiter=",")
 .input Bandwidth(IO=file, filename="workers.bandwidth", delimiter=",")
 
 .decl SplitLayer(x:number, w:number, z:symbol)
@@ -40,11 +42,12 @@ Layers(4,0,2.0,2.0).
 
 // SplitLayer(layer start, layer end, device)
 SplitLayer(0,0,k) :- Device(k).  // device k has no assignment
-SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,c), a<z, c<y.
+//SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Util(k,u), Layers(x,w,i,a,c), a<=z, c<=y, i<=u.
+SplitLayer(x,w,k) :- Device(k), Bandwidth(k,z), Memory(k,y), Layers(x,w,a,c), a<=z, c<=y.
 
 // currently need to specify all possible combinations
 // this can be done by a separate program 
-// arguments == number of split-able parts
+// arguments == number of workers/devices * 2 
 CheckUnique(a,b,c,d,e,f) :-
   // some devices can be assigned no layers 
   (a=1,b=2,c=3,d=4,e=0,f=0;a=1,b=3,c=4,d=0,e=0,f=0;a=1,b=0,c=2,d=4,e=0,f=0).  

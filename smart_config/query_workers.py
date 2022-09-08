@@ -15,6 +15,7 @@ import re
 TOP_CMD = "top -b -n 1 | head -5"
 PING_CMD = "ping -c 5 "
 
+# floating point number 
 FP = r"(\d+(?:\.\d*)?|\.\d+)"
 
 def get_adb_top(did):
@@ -25,13 +26,8 @@ def call_bash(cmd):
     return subprocess.getoutput(cmd)
 
 
-def parse_top(top, device_type):
+def parse_top(top, start_line):
     """return available memory line"""
-    if device_type == "workstation":
-        start_line = "MiB Mem"
-    else: 
-        start_line = "Mem"
-
     mem_line_maybe = filter(
         lambda l:l.lstrip().startswith(start_line), 
         top.split("\n"))
@@ -51,7 +47,13 @@ def mb2gb(mb):
 def parse_mem(top, device_type):
     """return available memory number"""
     pat = FP+r"([MG])? free"
-    mem_line = parse_top(top, device_type)
+
+    start_line = str()
+    if device_type == "workstation":
+        start_line = "MiB Mem"
+    else: 
+        start_line = "Mem"
+    mem_line = parse_top(top, start_line)
     match = re.search(pat, mem_line)
     assert match is not None, (
         "mem_line does not contain available memory number: "+mem_line)
@@ -70,6 +72,18 @@ def parse_mem(top, device_type):
         return mem_ava
 
 
+def parse_util(top):
+    """return cpu utilization number"""
+    pat = FP+r" id,"  # CPU time spent idle
+    start_line = "%Cpu(s):"
+    util_line = parse_top(top, start_line)
+    match = re.search(pat, util_line)
+    assert match is not None, (
+        "util_line does not contain cpu utilization number: "+mem_line)
+    cpu_util = float(match.group(1))
+    return cpu_util
+
+
 def parse_net(ping):
     """return avg RTT from ping in ms"""
     pat = r"min/avg/max/mdev = "+FP+"/"+FP+"/"
@@ -86,17 +100,19 @@ def main():
     # workstation
     top = call_bash(TOP_CMD)
     mem_ava = parse_mem(top, "workstation")
+    cpu_util = parse_util(top, "workstation")
     ping = call_bash(PING_CMD+WIP)    
     latency = parse_net(ping)
-    result += f"workstation,{str(mem_ava)},{str(latency)}\n"
+    result += f"workstation,{str(mem_ava)},{str(cpu_util)},{str(latency)}\n"
 
     # workers
     for i,dev in enumerate(DEVICES):
         top = call_bash(get_adb_top(dev.id))
         mem_ava = parse_mem(top, "android")
+        cpu_util = parse_util(top, "workstation")
         ping = call_bash(PING_CMD+dev.ip)    
         latency = parse_net(ping)
-        result += f"android{i},{str(mem_ava)},{str(latency)}\n"
+        result += f"android{i},{str(mem_ava)},{str(cpu_util)},{str(latency)}\n"
 
     with open("workers.info", "w") as f:
         f.write(result)
