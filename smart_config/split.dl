@@ -22,9 +22,9 @@
 
 .decl Layers(a:number, b:number, c:float, d:float)
 
-.decl SplitDevices(a:symbol, y:number, z:number, b:symbol, w:number, x:number, c:symbol, t:number, v:number)
+//.decl SplitDevices(a:symbol, y:number, z:number, b:symbol, w:number, x:number, c:symbol, t:number, v:number)
 
-.decl CheckUnique(a:number, b:number, c:number, d:number, e:number, f:number)
+//.decl CheckUnique(a:number, b:number, c:number, d:number, e:number, f:number)
 
 //.input Layers(IO=file, filename="workers.layers", delimiter=",")
 
@@ -54,31 +54,31 @@
 
 
 
-//// layers combination
+// layers combination
 
-//// Layers(layer start, layer end, bandwidth min, memory min)
+// Layers(layer start, layer end, bandwidth min, memory min)
 
-//Layers(1,2,13.0,9.0).
+Layers(1,2,13.0,9.0).
 
-//Layers(1,3,20.0,12.0).
+Layers(1,3,20.0,12.0).
 
-//Layers(1,4,22.0,14.0).
+Layers(1,4,22.0,14.0).
 
-//Layers(2,3,10.0,6.0).
+Layers(2,3,10.0,6.0).
 
-//Layers(2,4,12.0,8.0).
+Layers(2,4,12.0,8.0).
 
-//Layers(3,4,9.0,5.0).
+Layers(3,4,9.0,5.0).
 
-//// a device can be assigned to one layer
+// a device can be assigned to one layer
 
-//Layers(1,0,10.0,6.0).
+Layers(1,0,10.0,6.0).
 
-//Layers(2,0,3.0,3.0).
+Layers(2,0,3.0,3.0).
 
-//Layers(3,0,7.0,3.0).
+Layers(3,0,7.0,3.0).
 
-//Layers(4,0,2.0,2.0).
+Layers(4,0,2.0,2.0).
 
 
 

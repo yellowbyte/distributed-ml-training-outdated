@@ -229,6 +229,7 @@ def main():
     else:
         raise ValueError("unsupported model")
 
+    # constraints is a list of model portion combination that fits the current memory X utilization
     constraints: List[str] = forced_execution_driver()    
     breakpoint()
     # TODO: send `constraints` back to workstation over TCP 

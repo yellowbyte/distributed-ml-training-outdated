@@ -19,6 +19,8 @@ def gen_random_sym():
 
 
 def flatten(seq):
+    """
+    """
     return [item for sublist in seq for item in sublist]
 
 
@@ -123,7 +125,8 @@ def create_CheckUnique_rule(num_devices:int,model_portions:List):
 def create_Layers_rule():
     """
     """
-    # based on memoryXbandwidth from constraint_map_generation.py
+    # based on memory X utilization X bandwidth from constraint_map_generation.py
+    # TODO
     pass
 
 
@@ -252,10 +255,14 @@ def main():
         globals()["FORWARD_BODY"] = FORWARD_BODY
     else:
         raise ValueError("unsupported model")
-    #TODO: num_model_portions = len(FORWARD_BODY)
+    #TODO: uncomment after Layers is done
+    #num_model_portions = len(FORWARD_BODY)
     num_model_portions = 4
+
     model_portions = [i+1 for i in range(num_model_portions)]
-    #TODO: num_devices = len(DEVICES) + 1  # + 1 for workstation
+
+    #TODO: uncomment after Layers is done
+    #num_devices = len(DEVICES) + 1  # + 1 for workstation
     num_devices = 3
 
     # write base souffle code
