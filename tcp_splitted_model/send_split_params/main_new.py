@@ -6,12 +6,12 @@ from functools import wraps
 
 import torch
 import torch.nn as nn
-import torch.distributed.autograd as dist_autograd
-import torch.distributed.rpc as rpc
 import torch.multiprocessing as mp
 import torch.optim as optim
+import torch.distributed.autograd as dist_autograd
 from torch.distributed.optim import DistributedOptimizer
 from torch.distributed.rpc import RRef
+import torch.distributed.rpc as rpc
 import torchvision
 from torchvision.models.resnet import Bottleneck
 import torchvision.transforms as transforms
@@ -113,7 +113,7 @@ class ResNetShard1(ResNetBase):
     def forward(self, x_rref):
         x1 = x_rref.to_here().to(self.device)
         with self._lock:
-            print("conv2d type: {}".format(type(self.cov2d)))
+            #print("conv2d type: {}".format(type(self.cov2d)))
             x1 = self.cov2d(x1)
             x1 = self.layer_norm(x1)
             x1 = self.relu(x1)
@@ -165,8 +165,8 @@ class DistResNet50(nn.Module):
         # Put the first part of the ResNet50 on workers[0]
         self.p1_rref = rpc.remote(
             workers[0],
-            #RN1,
-            ResNetShard2,
+            RN1,
+            #ResNetShard2,
             args=("cpu",) + args,
             kwargs=kwargs
         )
@@ -174,8 +174,8 @@ class DistResNet50(nn.Module):
         # Put the second part of the ResNet50 on workers[1]
         self.p2_rref = rpc.remote(
             workers[1],
-            #RN0,
-            ResNetShard1,
+            RN0,
+            #ResNetShard1,
             args=("cpu",) + args,
             kwargs=kwargs
         )
@@ -446,12 +446,11 @@ def extract_layers(init_body_whole, forward_body_whole, start_index, end_index):
     return ("\n    ".join(devices_init), "\n    ".join(devices_body))
 
 
-def create_model(devices_init, devices_body, inplane_num, i):
+def create_model(devices_init, devices_body, i):
     # create model that initialize/execute specific layers
 
     init_str = ["def __init__(self, device, *args, **kwargs):"] + [
-        "super(RN" + str(i) + ", self).__init__(Bottleneck, " + str(
-            inplane_num) + ", num_classes=num_classes, *args, **kwargs)"] + [devices_init]
+        "super(RN" + str(i) + ", self).__init__(Bottleneck, 64, num_classes=num_classes, *args, **kwargs)"] + [devices_init]
     forward_str = ["def forward(self, x1):"] + ["x1 = x1.to_here()"] + [devices_body] + ["return x1.cpu()"]
     # print('@@@ INIT: ', init_str)
     # print("@@@ FORWARD: ", forward_str)
@@ -525,11 +524,11 @@ dependencies = {
 # devices_init, devices_body = preprocess(init_body, forward_body, 2, dependencies)
 #devices_init1, devices_body1, inplane_num1 = extract_layers(init_body, forward_body, dependencies, 0, 6)
 #devices_init2, devices_body2, inplane_num2 = extract_layers(init_body, forward_body, dependencies, 6,
-devices_init1, devices_body1, inplane_num1 = extract_layers(init_body, forward_body, 0, 4)
-devices_init2, devices_body2, inplane_num2 = extract_layers(init_body, forward_body, 4,
+devices_init1, devices_body1 = extract_layers(init_body, forward_body, 0, 2)
+devices_init2, devices_body2 = extract_layers(init_body, forward_body, 2,
                                                             len(forward_body) - 1)
-create_model(devices_init1, devices_body1, 64, 0)
-create_model(devices_init2, devices_body2, 64, 1)
+create_model(devices_init1, devices_body1,0)
+create_model(devices_init2, devices_body2,1)
 
 # for i in range(devices_num):
 #     # create model that initialize/execute specific layers
@@ -601,4 +600,4 @@ if __name__ == "__main__":
     # #     run_master(num_split)
     # #     tok = time.time()
     # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
-    # rpc.shutdown()
+    rpc.shutdown()
