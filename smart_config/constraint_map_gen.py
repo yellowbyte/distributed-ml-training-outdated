@@ -16,9 +16,14 @@ import torch.nn as nn
 from torch.distributed.rpc import RRef
 
 import sys
-import time
+import socket
+import pickle
 import signal
+import os
 
+
+HEADERSIZE = 10
+DEVICE_ID = None
 
 ### CORE ###
 
@@ -207,6 +212,9 @@ def create_model(devices_init: str, devices_body: str) -> None:
 
 
 def main():
+    os.environ['MASTER_ADDR'] = '192.168.1.10'
+    os.environ['MASTER_PORT'] = '29411'
+
     filepath = Path("models")
     if len(sys.argv) != 2:
         print("need to choose a model: {ff,resnet}")
@@ -229,11 +237,26 @@ def main():
     else:
         raise ValueError("unsupported model")
 
+    # Retrieve current device name
+    with open("device.txt", "r") as f:
+        txt = f.read().rstrip("\n")
+    global DEVICE_ID
+    DEVICE_ID = txt
+
     # constraints is a list of model portion combination that fits the current memory X utilization
-    constraints: List[str] = forced_execution_driver()    
-    breakpoint()
-    # TODO: send `constraints` back to workstation over TCP 
+    constraints: List[str] = [DEVICE_ID]
+    constraints.extend(forced_execution_driver())  # forced_execution_driver() returns list of string
+    print("constraints:")
+    print(constraints)
+    # send `constraints` back to workstation over TCP
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((os.environ['MASTER_ADDR'], int(os.environ['MASTER_PORT'])))
+    msg = pickle.dumps(constraints)
+    # len(msg) is HEADERSIZE number of characters and left-aligned
+    msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+    s.send(msg)
+    s.close()
 
 
 if __name__ == "__main__": 
-    main() 
+    main()

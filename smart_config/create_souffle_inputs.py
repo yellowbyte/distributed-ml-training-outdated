@@ -1,7 +1,7 @@
 """create Souffle input files (workers.device, workers.bandwidth, workers.memory) from workers.info.
 workers.info is created by query_workers.py
 
-./create_souffle_inputs.py
+python create_souffle_inputs.py
 """
 
 import os
@@ -10,15 +10,15 @@ import os
 def main():
     input_file = "workers.info"
     workers_info = list() 
-    assert os.path.isfile(input_file), "workers.info does not exist"
-    with open(input_file, "r") as f:    
+    assert os.path.isfile("infiles/"+input_file), "workers.info does not exist"
+    with open("infiles/"+input_file, "r") as f:
         workers_info = list(
             map(lambda l:l.rstrip(), f.readlines()))
     
     with open("workers.device", "w") as d, \
-            open("workers.bandwidth", "w") as b, \
-            open("workers.util", "w") as u, \
-            open("workers.memory", "w") as m:      
+            open("infiles/workers.bandwidth", "w") as b, \
+            open("infiles/workers.util", "w") as u, \
+            open("infiles/workers.memory", "w") as m:
         for winfo in workers_info:
             device,memory,util,latency = winfo.split(",")
             d.write(device+os.linesep)

@@ -7,7 +7,7 @@ import os
 
 
 def main():
-    input_file = output_file = "workers.bandwidth"
+    input_file = output_file = "infiles/workers.bandwidth"
     workers_info = list() 
     assert os.path.isfile(input_file), "workers.bandwidth does not exist"
     with open(input_file, "r") as f:    
