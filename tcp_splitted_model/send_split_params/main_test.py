@@ -485,7 +485,7 @@ init_body = [
     "self.make_layer1 = self._make_layer(64, 3)",
     "self.make_layer2 = self._make_layer(128, 4, stride=2)",
 
-    "self.make_layer3 = self._make_layer(256, 6, stride=2)",
+    "self.make_layer3 = self._make_layer(256, 6, stride=2)", # resnet50->(3, 4, 6, 3) blocks, resnet101->(3, 4, 23, 3) blocks, resnet152-> (3, 8, 36, 3) blocks
 
     "self.make_layer4 = self._make_layer(512, 3, stride=2)",
     "self.avgpool = nn.AdaptiveAvgPool2d((1, 1))",

@@ -624,48 +624,49 @@ if __name__ == "__main__":
 #   # #     tok = time.time()
 #   # #     print(f"number of splits = {num_split}, execution time = {tok - tik}")
 #   # rpc.shutdown()
-#   # # Sending Pickled Class
+  # # Sending Pickled Class
 
-#   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-#   #s.bind((os.environ['MASTER_ADDR'], int(os.environ['MASTER_PORT'])))
-#   #s.listen(5)
-#   #conn, addr = s.accept()
-#   # print('Connected by', addr)
-#   HEADERSIZE = 10
-#   # # d = {1: "hi", 2: "there"}
-#   # data = {
-#   #     # constructor
-#   #     "__init__": "globals()['__init__']",
-#   #     # member functions
-#   #     "forward": "globals()['forward']"
-#   # }
-#   # breakpoint()
-#   #msg = pickle.dumps(toy_models[0])
-#   #msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   #print(msg)
-#   #conn.send(msg)
-#   #data = conn.recv(16)
-#   #breakpoint()
-#   s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER2_PORT'])))
-#   msg = pickle.dumps("0:6")
-#   msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   print(msg)
-#   s.send(msg)
-#   s.close()
+  #s.bind((os.environ['MASTER_ADDR'], int(os.environ['MASTER_PORT'])))
+  #s.listen(5)
+  #conn, addr = s.accept()
+  # print('Connected by', addr)
+  HEADERSIZE = 10
+  # # d = {1: "hi", 2: "there"}
+  # data = {
+  #     # constructor
+  #     "__init__": "globals()['__init__']",
+  #     # member functions
+  #     "forward": "globals()['forward']"
+  # }
+  # breakpoint()
+  #msg = pickle.dumps(toy_models[0])
+  #msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+  #print(msg)
+  #conn.send(msg)
+  #data = conn.recv(16)
+  #breakpoint()
+  s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER2_PORT'])))
+  msg = pickle.dumps("0:6")
+  # len(msg) is HEADERSIZE number of characters and left-aligned
+  msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+  print(msg)
+  s.send(msg)
+  s.close()
 
-#   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#   #s.connect(("192.168.0.153", int(os.environ['WORKER1_PORT'])))
-#   s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER1_PORT'])))
-#   msg = pickle.dumps("6:10")
-#   msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
-#   print(msg)
-#   s.send(msg)
-#   s.close()
+  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  #s.connect(("192.168.0.153", int(os.environ['WORKER1_PORT'])))
+  s.connect((os.environ['MASTER_ADDR'], int(os.environ['WORKER1_PORT'])))
+  msg = pickle.dumps("6:10")
+  msg = bytes(f"{len(msg):<{HEADERSIZE}}", 'utf-8') + msg
+  print(msg)
+  s.send(msg)
+  s.close()
 
-#   # Perform Distributed Learning
-#   options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=100000)
-#   rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
-#   run_master(20)
-#   print("after run_master")
+  # Perform Distributed Learning
+  options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=256, rpc_timeout=100000)
+  rpc.init_rpc("master", rank=0, world_size=3, rpc_backend_options=options)
+  run_master(20)
+  print("after run_master")
 
